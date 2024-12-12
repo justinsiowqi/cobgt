@@ -1,2 +1,0 @@
-MATCH (a:Actor)-[:ACTED_IN]->(m:Movie), (p:Producer)-[:PRODUCED]->(m) WHERE m.title = "The Matrix" RETURN a.name, COUNT(a), p.name;
-MATCH (a:Actor)-[:ACTED_IN]->(m:Movie), (p:Producer)-[:PRODUCED]->(m) WHERE m.title = "Cloud Atlas" RETURN a.name, COUNT(a), p.name
