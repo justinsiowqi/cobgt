@@ -20,7 +20,7 @@ def run_cypher_lint(cyp_file_path):
         print("Error running cypher-lint:", e.stderr)
         return None
 
-cyp_file = 'sample.cyp'
+cyp_file = '../sample.cyp'
 output = run_cypher_lint(cyp_file)
 if output:
     print(output)
