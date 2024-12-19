@@ -1,0 +1,4 @@
+Question 1: Who were the actors in "The Matrix", and how many were there? Also, who produced the movie?
+Cypher 1: MATCH (a:Actor)-[:ACTED_IN]->(m:Movie), (p:Producer)-[:PRODUCED]->(m) WHERE m.title = "The Matrix" RETURN a.name, COUNT(a), p.name;
+Question 2: Who were the actors in "Cloud Atlas", and how many were there? Also, who produced the movie?
+Cypher 2: MATCH (a:Actor)-[:ACTED_IN]->(m:Movie), (p:Producer)-[:PRODUCED]->(m) WHERE m.title = "Cloud Atlas" RETURN a.name, COUNT(a), p.name
