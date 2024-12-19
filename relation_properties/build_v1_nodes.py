@@ -18,7 +18,6 @@ nltk.download('words')
 
 # Get a List of Stopwords from NLTK
 stop_list = stopwords.words("english")
-stop_list
 
 # Function to Remove Stopwords from Question
 def remove_stopwords(qn):
@@ -40,13 +39,6 @@ def remove_stopwords(qn):
 
     qn_fil = " ".join(qn_list_fil)
     return qn_fil
-
-# Remove Stopwords for Both Questions
-qn1_fil = remove_stopwords(qn1)
-qn2_fil = remove_stopwords(qn2)
-
-print(f"Removed Stopwords for Question 1: {qn1_fil}")
-print(f"Removed Stopwords for Question 2: {qn2_fil}")
 
 
 # ---------- Step 2: POS Tagging and Chunking ----------
@@ -82,10 +74,3 @@ def chunk_and_tag(qn_fil, return_tag=True):
         word_term = [label for label, tag in pos_tags]
         
     return word_term
-
-# Chunk and POS Tag Both Questions
-word_term1 = chunk_and_tag(qn1_fil)
-word_term2 = chunk_and_tag(qn2_fil)
-
-print(f"Word Term for Question 1: {word_term1}")
-print(f"Word Term for Question 2: {word_term2}")
