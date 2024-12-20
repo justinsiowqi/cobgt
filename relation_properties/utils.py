@@ -23,3 +23,11 @@ def read_question_cypher(file_path):
         cypher2 = lines[3].strip().replace("Cypher 2: ", "")
 
     return question1, cypher1, question2, cypher2
+
+def write_cypher(cypher1, cypher2, file_path):
+    
+    with open(file_path, 'w') as file:
+        file.write(cypher1 + "\n")
+        file.write(cypher2)
+    
+    print("cypher.cyp file created.")
