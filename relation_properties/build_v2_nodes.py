@@ -127,70 +127,44 @@ def split_hierarchical_trees(hierarchical_tree):
     return hierarchical_tree1, hierarchical_tree2
 
 
-# # ---------- Step 3: Extract Properties ----------
+# ---------- Step 3: Extract Properties ----------
 
-# # Function that Searches Hierarchical Tree for Label Types
-# def find_label_type(data, label_type):
-#     label_list = []
-#     for child in data.get('children', []):
-#         if child.get('type') == label_type:
-#             label_list.append(child)  
+# Function that Searches Hierarchical Tree for Label Types
+def find_label_type(data, label_type):
+    label_list = []
+    for child in data.get('children', []):
+        if child.get('type') == label_type:
+            label_list.append(child)  
         
-#         label_list.extend(find_label_type(child, label_type)) 
+        label_list.extend(find_label_type(child, label_type)) 
 
-#     return label_list  
+    return label_list  
 
-# # Extract Properties
-# tree1_prop = find_label_type(hierarchical_tree1, "property")
-# tree2_prop = find_label_type(hierarchical_tree2, "property")
+# Function to Extract the Details and Clean the String
+def extract_label_details(tree_items):
+    detail_list = []
+    for item in tree_items:
+        detail_list.append(item["details"].replace(":`", "").replace("`", ""))
 
-# # Extract Identifiers
-# tree1_identifier = find_label_type(hierarchical_tree1, "identifier")
-# tree2_identifier = find_label_type(hierarchical_tree2, "identifier")
+    return detail_list
 
-# # Extract Property Names
-# tree1_prop_name = find_label_type(hierarchical_tree1, "prop name")
-# tree2_prop_name = find_label_type(hierarchical_tree2, "prop name")
+# Function to Substitute the Property Details Using the Identifiers Dict and Property Names Dict
+def substitute_property_details(tree_prop_details, tree_identifier_dict, tree_prop_name_dict):
+    prop_list = []
+    for item in tree_prop_details:
+        parts = item.split(".")
+        for idx, part in enumerate(parts):
+            if part.startswith("@"):
+                part_id = int(part[1:])
 
-# # Function to Extract the Details and Clean the String
-# def extract_label_details(tree_items):
-#     detail_list = []
-    
-#     for item in tree_items:
-#         detail_list.append(item["details"].replace(":`", "").replace("`", ""))
+                if part_id in tree_identifier_dict:
+                    parts[idx] = tree_identifier_dict[part_id]
+                elif part_id in tree_prop_name_dict:
+                    parts[idx] = tree_prop_name_dict[part_id]
 
-#     return detail_list
+        prop_list.append(".".join(parts))
 
-# # Extract Property Details
-# tree1_prop_details = extract_label_details(tree1_prop)
-# tree2_prop_details = extract_label_details(tree2_prop)
-
-# # Convert the Identifiers List and Property Names List into a Dictionary
-# tree1_identifier_dict = {item['id']: item['details'].replace("`", "") for item in tree1_identifier}
-# tree1_prop_name_dict = {item['id']: item['details'].replace("`", "") for item in tree1_prop_name}
-
-# # Function to Substitute the Property Details Using the Identifiers Dict and Property Names Dict
-# def substitute_property_details(tree_prop_details, tree_identifier_dict, tree_prop_name_dict):
-    
-#     prop_list = []
-#     for item in tree_prop_details:
-#         parts = item.split(".")
-#         for idx, part in enumerate(parts):
-#             if part.startswith("@"):
-#                 part_id = int(part[1:])
-
-#                 if part_id in tree_identifier_dict:
-#                     parts[idx] = tree_identifier_dict[part_id]
-#                 elif part_id in tree_prop_name_dict:
-#                     parts[idx] = tree_prop_name_dict[part_id]
-
-#         prop_list.append(".".join(parts))
-
-#     return prop_list
-
-# # Extract the Properties from Both Trees
-# tree1_prop_list = substitute_property_details(tree1_prop_details, tree1_identifier_dict, tree1_prop_name_dict)
-# tree2_prop_list = substitute_property_details(tree2_prop_details, tree2_identifier_dict, tree2_prop_name_dict)
+    return prop_list
 
 
 # # ---------- Step 4: Extract Relationships ----------
