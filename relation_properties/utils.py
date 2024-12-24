@@ -25,7 +25,14 @@ def read_question_cypher(file_path):
     return question1, cypher1, question2, cypher2
 
 def write_cypher(cypher1, cypher2, file_path):
+    """
+    Write cypher to the cypher.cyp file.
     
+    Args:
+        cypher1:Cypher statement of question 1.
+        cypher2: Cypher statement of question 2.
+        file_path: The file path of question_cypher.txt.
+    """
     with open(file_path, 'w') as file:
         file.write(cypher1 + "\n")
         file.write(cypher2)
