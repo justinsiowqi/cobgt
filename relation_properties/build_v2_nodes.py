@@ -167,69 +167,54 @@ def substitute_property_details(tree_prop_details, tree_identifier_dict, tree_pr
     return prop_list
 
 
-# # ---------- Step 4: Extract Relationships ----------
+# ---------- Step 4: Extract Relationships ----------
 
-# # Function to Extract the MATCH Keyword and Item ID
-# def extract_match(tree):
-#     for item in tree:
-#         if item["type"] == "MATCH":
-#             return item["id"]
+# Function to Extract the MATCH Keyword and Item ID
+def extract_match(tree):
+    for item in tree:
+        if item["type"] == "MATCH":
+            return item["id"]
+
+# Function to Extract the Node Relationships
+def extract_node_relationship(tree, match_id):
+    node_children = []
+
+    # Extract Match Details from Match
+    match_details = re.search(r'pattern=@(\d+)', tree[match_id]["details"])
+    if match_details:
+        pattern_id = int(match_details.group(1))
+
+    # Extract Pattern Details from Pattern
+    pattern_details = tree[pattern_id]["details"]
+    if pattern_details:
+        pattern_paths_str = pattern_details.split("=")[1]
+        pattern_paths_str_list = re.findall(r'\d+', pattern_paths_str)
+        pattern_paths_int_list = [int(num) for num in pattern_paths_str_list]
+
+    # Extract Pattern Path Details from Pattern Path
+    rel_list = []
+    for paths_id in pattern_paths_int_list:
+        pattern_paths_details = tree[paths_id]["details"]
+        pattern_paths_details_str_list = re.findall(r'\d+', pattern_paths_details)
+        pattern_paths_details_int_list = [int(num) for num in pattern_paths_details_str_list]
         
-# # Extract the MATCH id for Both Trees
-# tree1_match_id = extract_match(parse_tree1)
-# tree2_match_id = extract_match(parse_tree2)
+        # Create a Dictionary with ID and Details
+        numbers = list(map(int, re.findall(r'\d+', pattern_paths_details)))
 
-# # Function to Extract the Node Relationships
-# def extract_node_relationship(tree, match_id):
-#     node_children = []
+        start_id = min(numbers)
+        end_id = max(numbers)
 
-#     # Extract Match Details from Match
-#     match_details = re.search(r'pattern=@(\d+)', tree[match_id]["details"])
-#     if match_details:
-#         pattern_id = int(match_details.group(1))
+        # Add 3 to End ID as a Buffer
+        id_mapping = {item['id']: item['details'].replace("`", "").replace("(", "").replace(")", "").replace("-[:", "").replace("]-", "") for item in parse_tree[start_id: end_id + 3]}
 
-#     # Extract Pattern Details from Pattern
-#     pattern_details = tree[pattern_id]["details"]
-#     if pattern_details:
-#         pattern_paths_str = pattern_details.split("=")[1]
-#         pattern_paths_str_list = re.findall(r'\d+', pattern_paths_str)
-#         pattern_paths_int_list = [int(num) for num in pattern_paths_str_list]
-
-#     # Extract Pattern Path Details from Pattern Path
-#     rel_list = []
-#     for paths_id in pattern_paths_int_list:
-#         pattern_paths_details = tree[paths_id]["details"]
-#         pattern_paths_details_str_list = re.findall(r'\d+', pattern_paths_details)
-#         pattern_paths_details_int_list = [int(num) for num in pattern_paths_details_str_list]
+        # Function to substitute each @id with its corresponding value
+        def substitute_ids(match):
+            id_value = int(match.group(1))  
+            return id_mapping.get(id_value, f"@{id_value}")
         
-#         # Create a Dictionary with ID and Details
-#         numbers = list(map(int, re.findall(r'\d+', pattern_paths_details)))
+        result = re.sub(r'@(\d+)', substitute_ids, pattern_paths_details)
+        result = re.sub(r'@(\d+)', substitute_ids, result)
 
-#         start_id = min(numbers)
-#         end_id = max(numbers)
-
-#         # Add 3 to End ID as a Buffer
-#         id_mapping = {item['id']: item['details'].replace("`", "").replace("(", "").replace(")", "").replace("-[:", "").replace("]-", "") for item in parse_tree[start_id: end_id + 3]}
-
-#         # Function to substitute each @id with its corresponding value
-#         def substitute_ids(match):
-#             id_value = int(match.group(1))  
-#             return id_mapping.get(id_value, f"@{id_value}")
-        
-#         result = re.sub(r'@(\d+)', substitute_ids, pattern_paths_details)
-#         result = re.sub(r'@(\d+)', substitute_ids, result)
-
-#         rel_list.append(result.replace("::", ":"))
+        rel_list.append(result.replace("::", ":"))
     
-#     return rel_list
-
-# # Extact the Relationships from Both Trees
-# tree1_rel_list = extract_node_relationship(parse_tree1, tree1_match_id)
-# tree2_rel_list = extract_node_relationship(parse_tree2, tree2_match_id)
-
-# # Combine the Relationship and Properties into a Single List
-# tree1_rel_prop = tree1_rel_list + tree1_prop_list
-# tree2_rel_prop = tree2_rel_list + tree2_prop_list
-
-# print(f"Tree 1 Relationship and Properties: {tree1_rel_prop}")
-# print(f"Tree 2 Relationship and Properties: {tree2_rel_prop}")
+    return rel_list

@@ -1,6 +1,6 @@
 from utils import read_question_cypher, write_cypher
 from build_v1_nodes import remove_stopwords, chunk_and_tag    
-from build_v2_nodes import run_cypher_lint, extract_parse_tree, build_hierarchy, split_parsed_trees, split_hierarchical_trees, find_label_type, extract_label_details, substitute_property_details
+from build_v2_nodes import run_cypher_lint, extract_parse_tree, build_hierarchy, split_parsed_trees, split_hierarchical_trees, find_label_type, extract_label_details, substitute_property_details, extract_match, extract_node_relationship
 
 # Define File Paths Here
 cyp_file_path = "cypher.cyp"
@@ -73,7 +73,21 @@ def main():
     # Extract the Properties from Both Trees
     tree1_prop_list = substitute_property_details(tree1_prop_details, tree1_identifier_dict, tree1_prop_name_dict)
     tree2_prop_list = substitute_property_details(tree2_prop_details, tree2_identifier_dict, tree2_prop_name_dict)
-    print(tree1_prop_list)    
+    
+    # Extract the MATCH id for Both Trees
+    tree1_match_id = extract_match(parse_tree1)
+    tree2_match_id = extract_match(parse_tree2)
+    
+    # Extact the Relationships from Both Trees
+    tree1_rel_list = extract_node_relationship(parse_tree1, tree1_match_id)
+    tree2_rel_list = extract_node_relationship(parse_tree2, tree2_match_id)
+
+    # Combine the Relationship and Properties into a Single List
+    tree1_rel_prop = tree1_rel_list + tree1_prop_list
+    tree2_rel_prop = tree2_rel_list + tree2_prop_list
+
+    print(f"Tree 1 Relationship and Properties: {tree1_rel_prop}")
+    print(f"Tree 2 Relationship and Properties: {tree2_rel_prop}")
     
 if __name__ == "__main__":
     main()
