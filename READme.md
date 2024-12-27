@@ -7,6 +7,14 @@ Please note that this paper was not authored by me, and the original authors did
 ## Prerequisites
 To run this project, you'll need to install [libcypher-parser](https://github.com/cleishm/libcypher-parser). For more information about how to install and use the package, you can refer to my [cypher parser](https://github.com/justinsiowqi/cypher-parser) repository.
 
+## Running the Key Value Extraction Module
+To run this module, you'll need to generate a dataset containing question-cypher pairs in order to fine-tune the BERT model. Alternatively, you can attach your own dataset.
+
+```bash
+cd key_value
+python generate_questions.py
+```
+
 ## Running the Relation Properties Module
 To properly run the model with the correct data, you'll need to create or edit the question_cypher.txt file. This file must be formatted correctly to ensure that the questions and Cypher queries are parsed as expected.
 
