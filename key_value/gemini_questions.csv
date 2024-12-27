@@ -1,0 +1,788 @@
+question,type,database
+List the first 5 movies released in 2003.,Simple Retrieval Queries,movies
+Which movies did Keanu Reeves act in?,Simple Retrieval Queries,movies
+"Who directed the movie ""Something's Gotta Give""?",Simple Retrieval Queries,movies
+"What is the tagline of the movie ""The Matrix Revolutions""?",Simple Retrieval Queries,movies
+"How many votes did the movie ""Something's Gotta Give"" receive?",Simple Retrieval Queries,movies
+"Who produced the movie ""Speed Racer""?",Simple Retrieval Queries,movies
+"What is the release year of the movie with the tagline ""Everything that has a beginning has an end""?",Simple Retrieval Queries,movies
+List the first 3 movies with more than 1000 votes.,Simple Retrieval Queries,movies
+Who are the first 3 people born after 1960?,Simple Retrieval Queries,movies
+Which movies did Nancy Meyers write?,Simple Retrieval Queries,movies
+"What are the roles of Keanu Reeves in the movie ""Something's Gotta Give""?",Simple Retrieval Queries,movies
+"Who produced the movie with the tagline ""Speed has no limits""?",Simple Retrieval Queries,movies
+Which movies released in 2003 have more than 50 votes?,Simple Retrieval Queries,movies
+List the top 5 movies with the highest number of votes.,Simple Retrieval Queries,movies
+Who are the people born before 1960?,Simple Retrieval Queries,movies
+"Which movies have ""Matrix"" in their title?",Simple Retrieval Queries,movies
+What are the taglines of the movies released after 2000?,Simple Retrieval Queries,movies
+List the first 3 people who acted in movies released in 2003.,Simple Retrieval Queries,movies
+Who directed movies with more than 100 votes?,Simple Retrieval Queries,movies
+What are the titles of movies produced by Joel Silver?,Simple Retrieval Queries,movies
+"Which person acted in both ""Something's Gotta Give"" and ""The Matrix Revolutions""?",Simple Retrieval Queries,movies
+List the first 5 movies released between 1990 and 2010.,Simple Retrieval Queries,movies
+Who are the people who have directed or produced a movie?,Simple Retrieval Queries,movies
+What are the taglines of movies with more than 500 votes?,Simple Retrieval Queries,movies
+"Which movies were released in the same year as ""The Matrix Revolutions""?",Simple Retrieval Queries,movies
+List the top 3 people with the highest number of movies acted in.,Simple Retrieval Queries,movies
+Who wrote movies released before 2000?,Simple Retrieval Queries,movies
+What are the titles of movies directed by people born before 1955?,Simple Retrieval Queries,movies
+Which people acted in movies produced by Joel Silver?,Simple Retrieval Queries,movies
+"List the first 5 movies with ""the"" in their title.",Simple Retrieval Queries,movies
+Who directed movies with less than 100 votes?,Simple Retrieval Queries,movies
+What are the release years of movies written by Nancy Meyers?,Simple Retrieval Queries,movies
+Which people acted in movies with more than 1000 votes?,Simple Retrieval Queries,movies
+List the first 3 people born between 1950 and 1960.,Simple Retrieval Queries,movies
+Who produced movies released after 2005?,Simple Retrieval Queries,movies
+"What are the titles of movies with taglines containing the word ""end""?",Simple Retrieval Queries,movies
+Which people acted in movies directed by people born before 1950?,Simple Retrieval Queries,movies
+"What are the first 3 reviews' summaries for the movie ""Something's Gotta Give""?",Simple Retrieval Queries,movies
+"What is the average rating for the movie ""The Matrix Revolutions""?",Simple Retrieval Queries,movies
+"Who reviewed the movie ""Something's Gotta Give"" with a rating above 80?",Simple Retrieval Queries,movies
+"List the first 3 people who reviewed movies with the summary ""A solid romp"".",Simple Retrieval Queries,movies
+"What are the ratings for the movie ""The Matrix Revolutions"" given by people born after 1960?",Simple Retrieval Queries,movies
+"Which movies have been reviewed with the summary ""Pretty funny at times""?",Simple Retrieval Queries,movies
+"Who gave the highest rating to the movie ""Something's Gotta Give""?",Simple Retrieval Queries,movies
+What are the summaries of reviews for movies released in 2003?,Simple Retrieval Queries,movies
+List the first 3 movies reviewed by Keanu Reeves.,Simple Retrieval Queries,movies
+Which people reviewed movies with a rating between 70 and 90?,Simple Retrieval Queries,movies
+What is the average rating given by people born before 1960?,Simple Retrieval Queries,movies
+"Who reviewed the movie ""The Matrix Revolutions"" with a summary containing the word ""amazing""?",Simple Retrieval Queries,movies
+List the first 3 movies with at least 3 reviews.,Simple Retrieval Queries,movies
+Which movies received a rating of 100?,Simple Retrieval Queries,movies
+Who gave the lowest rating to movies released in 2003?,Simple Retrieval Queries,movies
+What are the summaries of reviews with a rating higher than 95?,Simple Retrieval Queries,movies
+List the top 3 people who wrote the most reviews.,Simple Retrieval Queries,movies
+"Which movies have reviews with both ""funny"" and ""compelling"" summaries?",Simple Retrieval Queries,movies
+Who reviewed movies directed by Nancy Meyers?,Simple Retrieval Queries,movies
+What are the ratings given to movies produced by Joel Silver?,Simple Retrieval Queries,movies
+List the first 3 people who follow Keanu Reeves.,Simple Retrieval Queries,movies
+Who does Carrie-Anne Moss follow?,Simple Retrieval Queries,movies
+Which people are followed by more than 2 other people?,Simple Retrieval Queries,movies
+List the first 3 people who follow someone born before 1950.,Simple Retrieval Queries,movies
+"Who follows people who acted in ""The Matrix Revolutions""?",Simple Retrieval Queries,movies
+Which people are followed by people who directed a movie?,Simple Retrieval Queries,movies
+List the first 3 people who follow someone who produced a movie.,Simple Retrieval Queries,movies
+Who follows people who reviewed a movie with a rating above 90?,Simple Retrieval Queries,movies
+Which people follow Nancy Meyers and Joel Silver?,Simple Retrieval Queries,movies
+List the 3 movies with the lowest number of votes.,Simple Retrieval Queries,movies
+Who directed the movie with the fewest votes?,Simple Retrieval Queries,movies
+What is the tagline of the movie with the earliest release date?,Simple Retrieval Queries,movies
+Which person acted in the most movies?,Simple Retrieval Queries,movies
+Who are the people who have both directed and produced a movie?,Simple Retrieval Queries,movies
+What is the average number of votes for movies released after 2000?,Simple Retrieval Queries,movies
+Which movies have no tagline?,Simple Retrieval Queries,movies
+Who is the oldest person who acted in a movie?,Simple Retrieval Queries,movies
+What is the average release year of movies with more than 500 votes?,Simple Retrieval Queries,movies
+Which pair of people acted in the same movie?,Simple Retrieval Queries,movies
+Who acted in movies directed by the youngest director?,Simple Retrieval Queries,movies
+What is the difference in release years between the oldest and newest movies?,Simple Retrieval Queries,movies
+Which movie has the longest tagline?,Simple Retrieval Queries,movies
+Who are the people who acted in movies released in the same year they were born?,Simple Retrieval Queries,movies
+What is the average rating given for movies released before 2000?,Simple Retrieval Queries,movies
+Which movies have received reviews with all available summaries?,Simple Retrieval Queries,movies
+Who reviewed the most movies released after 2005?,Simple Retrieval Queries,movies
+What is the average number of roles played by people born after 1960?,Simple Retrieval Queries,movies
+Which movies have been reviewed by everyone who follows Keanu Reeves?,Simple Retrieval Queries,movies
+Who follows the person who directed the most movies?,Simple Retrieval Queries,movies
+What is the average born year of people who follow someone who produced a movie?,Simple Retrieval Queries,movies
+Which people have reviewed movies acted in by everyone they follow?,Simple Retrieval Queries,movies
+List the first 3 movies with the highest average rating.,Simple Retrieval Queries,movies
+Who directed movies reviewed by the person born the earliest?,Simple Retrieval Queries,movies
+What is the average number of votes for movies written by Nancy Meyers?,Simple Retrieval Queries,movies
+Which movie released after 2000 has the lowest average rating?,Simple Retrieval Queries,movies
+Who acted in the movie with the highest average rating?,Simple Retrieval Queries,movies
+What is the difference between the highest and lowest rating given by the same person?,Simple Retrieval Queries,movies
+Which movies have been reviewed by both Keanu Reeves and Carrie-Anne Moss?,Simple Retrieval Queries,movies
+Who follows people who have written and directed a movie?,Simple Retrieval Queries,movies
+What is the average born year of people who have reviewed a movie with a rating of 100?,Simple Retrieval Queries,movies
+Which people have acted in movies directed by someone they follow?,Simple Retrieval Queries,movies
+List the top 3 movies with the largest difference between the highest and lowest rating received.,Simple Retrieval Queries,movies
+"Who directed the movie with the highest number of reviews with the summary ""A solid romp""?",Simple Retrieval Queries,movies
+Which movies released in 2003 did Laurence Fishburne act in?,Complex Retrieval Queries,movies
+List the movies produced by Joel Silver with less than 1000 votes.,Complex Retrieval Queries,movies
+"What are the titles of the movies Tom Hanks acted in, released before 2000?",Complex Retrieval Queries,movies
+"Who acted in ""Cloud Atlas"" and were born after 1950?",Complex Retrieval Queries,movies
+Find the movies with more than 100 votes where Hugo Weaving acted.,Complex Retrieval Queries,movies
+List the names of people who acted in movies released in 1995.,Complex Retrieval Queries,movies
+"What is the release year of the movie with the tagline ""Houston, we have a problem.""?",Complex Retrieval Queries,movies
+"Which movies have ""Fun"" in their review summary?",Complex Retrieval Queries,movies
+Find the movies reviewed with a rating greater than 90.,Complex Retrieval Queries,movies
+List the people born before 1965 who acted in movies with over 50 votes.,Complex Retrieval Queries,movies
+What are the roles Laurence Fishburne played in movies released after 2000?,Complex Retrieval Queries,movies
+"Find the people who acted in movies with a tagline containing the word ""connected"".",Complex Retrieval Queries,movies
+Which movies released before 2010 were reviewed with a rating less than 70?,Complex Retrieval Queries,movies
+"List the names of people who acted in movies with ""The Matrix"" in the title.",Complex Retrieval Queries,movies
+What is the average rating of movies released after 1990?,Complex Retrieval Queries,movies
+Find the movies with the lowest number of votes that Hugo Weaving acted in.,Complex Retrieval Queries,movies
+"Which person acted in both ""Apollo 13"" and ""Cloud Atlas""?",Complex Retrieval Queries,movies
+List the movies released between 1990 and 2005 with more than 50 votes.,Complex Retrieval Queries,movies
+What are the taglines of movies with a rating higher than 85?,Complex Retrieval Queries,movies
+Find the people born after 1955 who acted in movies released before 2000.,Complex Retrieval Queries,movies
+"Which movies have a review summary containing ""amazing""?",Complex Retrieval Queries,movies
+List the names of people who produced movies with less than 500 votes.,Complex Retrieval Queries,movies
+What is the release year of the movie with the highest rating?,Complex Retrieval Queries,movies
+Find the movies acted in by people born before 1960 with a rating over 90.,Complex Retrieval Queries,movies
+"Which person directed ""The Matrix Revolutions""?",Complex Retrieval Queries,movies
+"List the movies with a tagline containing the word ""Real"" and released after 1995.",Complex Retrieval Queries,movies
+What are the roles of Tom Hanks in movies released before 2000?,Complex Retrieval Queries,movies
+Find the people who wrote movies with more than 1000 votes.,Complex Retrieval Queries,movies
+"Which movies have a review summary containing the word ""compelling""?",Complex Retrieval Queries,movies
+List the names of people who produced movies released between 1990 and 2010.,Complex Retrieval Queries,movies
+What is the average number of votes for movies released before 2000?,Complex Retrieval Queries,movies
+Find the movies with the highest rating reviewed by people born after 1960.,Complex Retrieval Queries,movies
+Which person acted in the movie with the lowest number of votes?,Complex Retrieval Queries,movies
+"List the movies released after 2000 with a tagline containing the word ""end"".",Complex Retrieval Queries,movies
+What are the review summaries for movies with a rating less than 60?,Complex Retrieval Queries,movies
+Find the people born before 1950 who directed movies with more than 500 votes.,Complex Retrieval Queries,movies
+"Which movies have a tagline containing the word ""Speed""?",Complex Retrieval Queries,movies
+List the names of people who wrote movies released before 1990.,Complex Retrieval Queries,movies
+What is the release year of the movie with the lowest rating?,Complex Retrieval Queries,movies
+Find the movies acted in by people born after 1965 with a rating under 70.,Complex Retrieval Queries,movies
+"Which person directed the movie ""Cloud Atlas""?",Complex Retrieval Queries,movies
+"List the movies with a tagline containing the word ""problem"" released before 2000.",Complex Retrieval Queries,movies
+What are the roles of Laurence Fishburne in movies with more than 100 votes?,Complex Retrieval Queries,movies
+Find the people who produced movies with a rating higher than 95.,Complex Retrieval Queries,movies
+"Which movies have a review summary containing the word ""journey""?",Complex Retrieval Queries,movies
+List the names of people who directed movies released between 2000 and 2012.,Complex Retrieval Queries,movies
+What is the average rating of movies with less than 100 votes?,Complex Retrieval Queries,movies
+Find the movies with the lowest rating reviewed by people born before 1955.,Complex Retrieval Queries,movies
+"Which person acted in the movie with the tagline ""Welcome to the Real World""?",Complex Retrieval Queries,movies
+"List the movies released before 1990 with a tagline containing the word ""beginning"".",Complex Retrieval Queries,movies
+What are the review summaries for movies with more than 500 votes?,Complex Retrieval Queries,movies
+Find the people born after 1960 who wrote movies with less than 100 votes.,Complex Retrieval Queries,movies
+"Which movies have a tagline containing the word ""limits""?",Complex Retrieval Queries,movies
+List the names of people who directed movies with a rating over 90.,Complex Retrieval Queries,movies
+What is the release year of the movie with the second highest rating?  (Limit to 3),Complex Retrieval Queries,movies
+Find the movies acted in by Laurence Fishburne with a rating above 80.,Complex Retrieval Queries,movies
+Who directed the movie with the highest number of votes? (Limit to 3),Complex Retrieval Queries,movies
+"List the movies with a review summary containing ""funny"" released after 1990.",Complex Retrieval Queries,movies
+What are the roles of Hugo Weaving in movies with less than 200 votes?,Complex Retrieval Queries,movies
+Find the people who wrote movies with a rating lower than 60.,Complex Retrieval Queries,movies
+"Which movies have a tagline containing the word ""connected"" and were released before 2010?",Complex Retrieval Queries,movies
+"List the names of people born after 1950 who acted in ""Apollo 13"".",Complex Retrieval Queries,movies
+What is the average number of votes for movies with a rating greater than 80?,Complex Retrieval Queries,movies
+Find the movies with the highest rating directed by people born before 1960. (Limit to 3),Complex Retrieval Queries,movies
+"Which person produced the movie ""Speed Racer""?",Complex Retrieval Queries,movies
+"List the movies released after 2005 with a tagline containing the word ""Everything"".",Complex Retrieval Queries,movies
+What are the review summaries for movies with a rating between 70 and 90?,Complex Retrieval Queries,movies
+Find the people born before 1955 who wrote movies with more than 200 votes.,Complex Retrieval Queries,movies
+"Which movies have a tagline containing the word ""Houston""?",Complex Retrieval Queries,movies
+List the names of people who acted in movies directed by Joel Silver.,Complex Retrieval Queries,movies
+What is the release year of the movie with the third highest number of votes? (Limit to 3),Complex Retrieval Queries,movies
+Find the movies acted in by Tom Hanks with a rating below 80.,Complex Retrieval Queries,movies
+Who wrote the movie with the lowest number of votes? (Limit to 3),Complex Retrieval Queries,movies
+"List the movies with a review summary containing ""solid"" released before 2000.",Complex Retrieval Queries,movies
+What are the roles of Laurence Fishburne in movies released before 2000?,Complex Retrieval Queries,movies
+Find the people who produced movies with a rating between 75 and 90.,Complex Retrieval Queries,movies
+"Which movies have a tagline containing the words ""has a beginning"" and were released after 2000?",Complex Retrieval Queries,movies
+"List the names of people born after 1960 who acted in ""The Matrix Revolutions"".",Complex Retrieval Queries,movies
+What is the average rating for movies released between 1995 and 2005?,Complex Retrieval Queries,movies
+Find the 3 movies with the highest votes that Hugo Weaving acted in.,Complex Retrieval Queries,movies
+Which person directed the movie with the lowest rating? (Limit to 3),Complex Retrieval Queries,movies
+"List the 5 movies released after 2000 with a review summary containing ""fun"".",Complex Retrieval Queries,movies
+What are the roles of Tom Hanks in movies with more than 150 votes?,Complex Retrieval Queries,movies
+Find the 3 people who produced movies with the most votes.,Complex Retrieval Queries,movies
+"Which movies have a review summary containing the word ""dark"" and were released before 2010?",Complex Retrieval Queries,movies
+List the names of people born before 1965 who acted in movies with a rating above 90.,Complex Retrieval Queries,movies
+What is the average number of votes for movies released between 1990 and 2000?,Complex Retrieval Queries,movies
+Find the 3 movies with the lowest rating directed by people born after 1950.,Complex Retrieval Queries,movies
+"Which person wrote the movie ""Cloud Atlas""? (Limit to 3)",Complex Retrieval Queries,movies
+"List the 5 movies released before 2005 with a tagline containing the word ""Matrix"".",Complex Retrieval Queries,movies
+What are the review summaries for movies with less than 50 votes?,Complex Retrieval Queries,movies
+Find the 3 people born after 1955 who directed movies with more than 100 votes.,Complex Retrieval Queries,movies
+"Which movies have a tagline containing the word ""Atlas""?",Complex Retrieval Queries,movies
+List the names of people who acted in movies produced by Laurence Fishburne.,Complex Retrieval Queries,movies
+What is the release year of the movie with the second lowest number of votes? (Limit to 3),Complex Retrieval Queries,movies
+Find the 3 movies acted in by Joel Silver with a rating above 70.,Complex Retrieval Queries,movies
+Who produced the movie with the highest rating? (Limit to 3),Complex Retrieval Queries,movies
+"List the 5 movies with a review summary containing ""romp"" released after 1995.",Complex Retrieval Queries,movies
+What are the roles of Hugo Weaving in movies with a rating below 80?,Complex Retrieval Queries,movies
+Which movies released in 2003 did Keanu Reeves act in?,Simple Aggregation Queries,movies
+What are the titles of the top 3 movies with the most votes?,Simple Aggregation Queries,movies
+Find the names of the people who directed movies released between 1990 and 2000.,Simple Aggregation Queries,movies
+List the top 5 movies with the highest ratings reviewed by Keanu Reeves.,Simple Aggregation Queries,movies
+What are the titles and release years of the first 3 movies acted in by Laurence Fishburne?,Simple Aggregation Queries,movies
+"Who are the 3 people who acted in ""Something's Gotta Give""?",Simple Aggregation Queries,movies
+What is the average rating given by Keanu Reeves in his reviews?,Simple Aggregation Queries,movies
+List the names of the people who wrote movies released after 2000.,Simple Aggregation Queries,movies
+Which movies were produced by Joel Silver and released before 2010?,Simple Aggregation Queries,movies
+Find the top 3 movies with the lowest number of votes.,Simple Aggregation Queries,movies
+What are the taglines of movies directed by Nancy Meyers?,Simple Aggregation Queries,movies
+"Who directed ""The Matrix Revolutions""?",Simple Aggregation Queries,movies
+List the roles played by Laurence Fishburne in movies released in 2003.,Simple Aggregation Queries,movies
+What are the summaries of the reviews given by Keanu Reeves with a rating above 90?,Simple Aggregation Queries,movies
+Find the release years of the 3 movies with the fewest votes.,Simple Aggregation Queries,movies
+"Who are the people who produced ""Speed Racer""?",Simple Aggregation Queries,movies
+What is the average number of votes for movies released in 2003?,Simple Aggregation Queries,movies
+List the names of the people born before 1960 who directed a movie.,Simple Aggregation Queries,movies
+Which movies were written by people born after 1950?,Simple Aggregation Queries,movies
+What are the titles and taglines of the 3 movies with the highest number of votes?,Simple Aggregation Queries,movies
+Find the names of the people who acted in movies with more than 1000 votes.,Simple Aggregation Queries,movies
+What is the earliest release year of a movie directed by Nancy Meyers?,Simple Aggregation Queries,movies
+"List the roles played by Keanu Reeves in ""Something's Gotta Give"".",Simple Aggregation Queries,movies
+What are the summaries of reviews with a rating between 70 and 80?,Simple Aggregation Queries,movies
+Find the birth years of the 3 people who acted in the movies with the most votes.,Simple Aggregation Queries,movies
+"Who produced movies released in the same year as ""The Matrix Revolutions""?",Simple Aggregation Queries,movies
+What is the average rating of reviews for movies released after 2000?,Simple Aggregation Queries,movies
+List the names of the people born after 1960 who wrote a movie.,Simple Aggregation Queries,movies
+Which movies were directed by people born before 1955?,Simple Aggregation Queries,movies
+What are the titles and release years of the 3 movies with the lowest ratings?,Simple Aggregation Queries,movies
+Find the names of the people who acted in movies released before 1990.,Simple Aggregation Queries,movies
+What is the latest release year of a movie produced by Joel Silver?,Simple Aggregation Queries,movies
+List the roles played by Laurence Fishburne in movies with more than 500 votes.,Simple Aggregation Queries,movies
+What are the summaries of the 3 reviews with the highest ratings?,Simple Aggregation Queries,movies
+Find the birth years of the people who directed movies with less than 100 votes.,Simple Aggregation Queries,movies
+"Who wrote movies released in the same year as ""Something's Gotta Give""?",Simple Aggregation Queries,movies
+What is the average number of votes for movies produced by Joel Silver?,Simple Aggregation Queries,movies
+List the names of the 3 oldest people who acted in a movie.,Simple Aggregation Queries,movies
+Which movies were written by people born between 1940 and 1950?,Simple Aggregation Queries,movies
+What are the titles and taglines of the movies directed by Nancy Meyers?,Simple Aggregation Queries,movies
+Find the names of 3 people who acted in movies with a rating above 95.,Simple Aggregation Queries,movies
+What is the earliest birth year of a person who produced a movie?,Simple Aggregation Queries,movies
+List the roles played by Keanu Reeves in movies released after 2000.,Simple Aggregation Queries,movies
+What are the summaries of the 3 reviews with the lowest ratings?,Simple Aggregation Queries,movies
+Find the birth years of the people who directed the 3 movies with the most votes.,Simple Aggregation Queries,movies
+Who produced movies acted in by Keanu Reeves?,Simple Aggregation Queries,movies
+What is the average rating of reviews for movies released before 2000?,Simple Aggregation Queries,movies
+List the names of the 3 youngest people who wrote a movie.,Simple Aggregation Queries,movies
+Which movies were directed by people born between 1950 and 1960?,Simple Aggregation Queries,movies
+"What are the titles and release years of the movies with the tagline containing ""end""?",Simple Aggregation Queries,movies
+Who acted in movies produced by Joel Silver?,Simple Aggregation Queries,movies
+What is the latest birth year of a person who directed a movie?,Simple Aggregation Queries,movies
+List the roles of Keanu Reeves in movies with a rating greater than 80.,Simple Aggregation Queries,movies
+Find the 3 movies with the shortest taglines.,Simple Aggregation Queries,movies
+Who wrote movies released after the year Keanu Reeves was born?,Simple Aggregation Queries,movies
+List the names of the people who follow Keanu Reeves.,Simple Aggregation Queries,movies
+"Which movies released before 2000 have ""fun"" in their review summaries?",Simple Aggregation Queries,movies
+Who acted in the movie with the most votes?,Simple Aggregation Queries,movies
+What is the earliest year a person who reviewed a movie was born?,Simple Aggregation Queries,movies
+List 3 distinct roles played by actors in movies released in 2003.,Simple Aggregation Queries,movies
+Find the movies reviewed by people born before 1960.,Simple Aggregation Queries,movies
+Who directed movies with more than 500 votes?,Simple Aggregation Queries,movies
+What is the average born year of people who wrote movies?,Simple Aggregation Queries,movies
+List the names of people who follow Laurence Fishburne.,Simple Aggregation Queries,movies
+Who acted in movies released the same year they were born?,Simple Aggregation Queries,movies
+What is the latest year a person who reviewed a movie was born?,Simple Aggregation Queries,movies
+List 3 distinct roles played by actors in movies with more than 1000 votes.,Simple Aggregation Queries,movies
+"Find the movies with a tagline containing the word ""Real"".",Simple Aggregation Queries,movies
+What is the average released year of movies produced by Joel Silver?,Simple Aggregation Queries,movies
+List the people who follow Nancy Meyers.,Simple Aggregation Queries,movies
+Who acted in movies directed by people born before 1950?,Simple Aggregation Queries,movies
+What is the earliest released year of a movie reviewed by Keanu Reeves?,Simple Aggregation Queries,movies
+List the distinct roles played by actors in movies with a rating above 90.,Simple Aggregation Queries,movies
+"Find the movies with a tagline containing the word ""Speed"".",Simple Aggregation Queries,movies
+Who directed movies with a rating greater than 90?,Simple Aggregation Queries,movies
+What is the average number of votes of movies released before 2000?,Simple Aggregation Queries,movies
+List the names of people born after 1960 who have reviewed movies.,Simple Aggregation Queries,movies
+"Which movies released after 2000 have ""journey"" in their review summaries?",Simple Aggregation Queries,movies
+Who acted in the movie with the fewest votes?,Simple Aggregation Queries,movies
+What is the median born year of people who acted in movies?,Simple Aggregation Queries,movies
+List 3 distinct roles played by actors in movies with less than 100 votes.,Simple Aggregation Queries,movies
+Find the movies reviewed by people born after 1960.,Simple Aggregation Queries,movies
+Who directed movies released between 1995 and 2005?,Simple Aggregation Queries,movies
+What is the maximum number of roles played by a single actor in a movie?,Simple Aggregation Queries,movies
+List movies with reviews that have a rating between 80 and 90.,Simple Aggregation Queries,movies
+"Which movies have ""football"" in their review summary?",Simple Aggregation Queries,movies
+Who acted in movies with a release year before 1990?,Simple Aggregation Queries,movies
+What is the minimum number of votes for movies released after 2000?,Simple Aggregation Queries,movies
+"List the movies with review summaries containing ""romp"".",Simple Aggregation Queries,movies
+"Find the movies with taglines containing the word ""Matrix"".",Simple Aggregation Queries,movies
+"Who directed movies released the same year as ""Speed Racer""?",Simple Aggregation Queries,movies
+What is the maximum rating given in a movie review?,Simple Aggregation Queries,movies
+List the movies released between 1995 and 2005 with more than 500 votes.,Simple Aggregation Queries,movies
+"Which movies have ""Slapstick"" in their review summary?",Simple Aggregation Queries,movies
+Who acted in the same movie as Laurence Fishburne?,Simple Aggregation Queries,movies
+What is the minimum rating given in a movie review?,Simple Aggregation Queries,movies
+Which movies released between 1990 and 2000 have more than 5000 votes?,Pathfinding Queries,movies
+List the first 3 movies directed by Lana Wachowski.,Pathfinding Queries,movies
+"Who are the first 3 people who acted in ""The Matrix""?",Pathfinding Queries,movies
+What are the roles played by Keanu Reeves in the movies he acted in?,Pathfinding Queries,movies
+Which movies did Joel Silver produce?,Pathfinding Queries,movies
+"Who directed the movie ""Speed Racer""?",Pathfinding Queries,movies
+"What is the tagline of the movie ""V for Vendetta""?",Pathfinding Queries,movies
+"How many votes did the movie ""The Matrix"" receive?",Pathfinding Queries,movies
+"In what year was the movie ""Speed Racer"" released?",Pathfinding Queries,movies
+"Who produced the movie with the tagline ""Welcome to the Real World""?",Pathfinding Queries,movies
+What are the first 3 movies reviewed with a rating above 90?,Pathfinding Queries,movies
+"List the first 3 reviews' summaries and ratings for ""The Matrix"".",Pathfinding Queries,movies
+Who are the first 3 people who reviewed movies with a rating between 70 and 80?,Pathfinding Queries,movies
+What is the average rating given by the first 3 reviewers?,Pathfinding Queries,movies
+"Which movies have been reviewed with the summary ""A solid romp""?",Pathfinding Queries,movies
+What is the highest rating given to a movie directed by Lana Wachowski?,Pathfinding Queries,movies
+"List the first 3 movies produced by Joel Silver, along with their release year and number of votes.",Pathfinding Queries,movies
+Find the first 3 people born after 1960 who directed a movie.,Pathfinding Queries,movies
+What are the taglines of the first 3 movies released before 1995?,Pathfinding Queries,movies
+Which person directed and produced the same movie?,Pathfinding Queries,movies
+Who are the first 3 people who acted in movies released after 2000?,Pathfinding Queries,movies
+What are the titles of the first 3 movies with more than 1000 votes?,Pathfinding Queries,movies
+List the first 3 people born before 1960 who produced a movie.,Pathfinding Queries,movies
+Find the first 3 movies with the lowest number of votes.,Pathfinding Queries,movies
+What is the average number of votes for movies released between 1995 and 2005?,Pathfinding Queries,movies
+Which person directed the movie with the highest number of votes?,Pathfinding Queries,movies
+Who are the first 3 people who acted in movies with a rating above 85?,Pathfinding Queries,movies
+"List the first 3 movies with taglines containing the word ""Forever"".",Pathfinding Queries,movies
+Find the first 3 people who produced movies released before 1990.,Pathfinding Queries,movies
+"What are the roles played by the first 3 actors in ""Speed Racer""?",Pathfinding Queries,movies
+"Who directed the movie with the summary ""A solid romp""?",Pathfinding Queries,movies
+What is the average rating of movies released after 2005?,Pathfinding Queries,movies
+Which person wrote and directed the same movie?,Pathfinding Queries,movies
+"List the first 3 movies with titles containing the word ""The"".",Pathfinding Queries,movies
+"Find the first 3 people who reviewed movies with the summary ""Pretty funny at times"".",Pathfinding Queries,movies
+What are the release years of the first 3 movies directed by Lilly Wachowski?,Pathfinding Queries,movies
+Who produced the movie with the lowest number of votes?,Pathfinding Queries,movies
+What is the highest rating given to a movie produced by Joel Silver?,Pathfinding Queries,movies
+Which person acted in and directed the same movie?,Pathfinding Queries,movies
+List the first 3 movies released in the year 2008.,Pathfinding Queries,movies
+Find the first 3 people who reviewed movies released before 1995.,Pathfinding Queries,movies
+What are the taglines of the first 3 movies directed by Lana Wachowski?,Pathfinding Queries,movies
+Who produced the movie with the highest rating?,Pathfinding Queries,movies
+What is the average number of votes for movies released in the year 2006?,Pathfinding Queries,movies
+Which person acted in the movie with the lowest rating?,Pathfinding Queries,movies
+"List the first 3 movies with summaries containing the word ""amazing"".",Pathfinding Queries,movies
+Find the first 3 people who directed movies with more than 5000 votes.,Pathfinding Queries,movies
+"What are the roles played by Keanu Reeves in the movie ""The Matrix""?",Pathfinding Queries,movies
+Who directed the movie released in the year 1999 with the highest number of votes?,Pathfinding Queries,movies
+What is the tagline of the movie with the lowest rating?,Pathfinding Queries,movies
+Which person produced and wrote the same movie?,Pathfinding Queries,movies
+"List the first 3 movies reviewed with the summary ""Dark, but compelling"".",Pathfinding Queries,movies
+Find the first 3 people born after 1970 who acted in a movie.,Pathfinding Queries,movies
+What are the release years of the first 3 movies with more than 3000 votes?,Pathfinding Queries,movies
+"Who directed the movie with the summary ""Silly, but fun""?",Pathfinding Queries,movies
+What is the average rating of movies produced by Joel Silver?,Pathfinding Queries,movies
+Which person acted in and produced the same movie?,Pathfinding Queries,movies
+"List the first 3 movies with titles containing the word ""Racer"".",Pathfinding Queries,movies
+Find the first 3 people who reviewed movies directed by Lana Wachowski.,Pathfinding Queries,movies
+What are the taglines of the first 3 movies released after 2005?,Pathfinding Queries,movies
+Who wrote the movie with the highest number of votes?,Pathfinding Queries,movies
+"What is the release year of the movie with the summary ""An amazing journey""?",Pathfinding Queries,movies
+Which person directed and wrote the same movie?,Pathfinding Queries,movies
+List the first 3 movies reviewed by the person born in 1965.,Pathfinding Queries,movies
+Find the first 3 people who produced movies with a rating above 90.,Pathfinding Queries,movies
+What are the roles played by the first 3 actors in the movie with the highest number of votes?,Pathfinding Queries,movies
+"Who directed the movie with the tagline ""Freedom! Forever!""?",Pathfinding Queries,movies
+What is the average rating of movies released before 1990?,Pathfinding Queries,movies
+Which person acted in and wrote the same movie?,Pathfinding Queries,movies
+"What is the release year of the movie ""V for Vendetta""?",Pathfinding Queries,movies
+Who are the first 3 people who followed Lana Wachowski?,Pathfinding Queries,movies
+Who are the first 3 people followed by Keanu Reeves?,Pathfinding Queries,movies
+What are the first 3 movies acted in by people who follow Lilly Wachowski?,Pathfinding Queries,movies
+What is the average rating of movies reviewed by people who follow Joel Silver?,Pathfinding Queries,movies
+Which movies were directed by people followed by Keanu Reeves?,Pathfinding Queries,movies
+What is the earliest release year of a movie acted in by someone who follows Lana Wachowski?,Pathfinding Queries,movies
+Who directed the top 3 highest rated movies reviewed by followers of Joel Silver?,Pathfinding Queries,movies
+What are the taglines of the movies produced by people followed by Lilly Wachowski?,Pathfinding Queries,movies
+"Who are the top 3 people born before 1960 that are followed by someone who acted in ""The Matrix""?",Pathfinding Queries,movies
+What are the roles of the actors in the movies reviewed with a rating greater than 95?,Pathfinding Queries,movies
+"Which movies released after 2000 were reviewed with ""An amazing journey"" by someone who follows Keanu Reeves?",Pathfinding Queries,movies
+Who are the people who acted in movies directed by someone followed by Lana Wachowski?,Pathfinding Queries,movies
+What is the average number of votes for movies produced by people followed by Joel Silver?,Pathfinding Queries,movies
+"List the first 3 movies reviewed by people who follow someone who directed ""Speed Racer"".",Pathfinding Queries,movies
+"Which movies were produced by people born after 1950 and followed by someone who acted in ""The Matrix""?",Pathfinding Queries,movies
+What are the taglines of the movies directed by people followed by Lilly Wachowski and born before 1960?,Pathfinding Queries,movies
+"Who are the people who reviewed movies with a rating less than 70 and follow someone who produced ""V for Vendetta""?",Pathfinding Queries,movies
+What is the highest rating given to a movie acted in by someone who follows Keanu Reeves and was born after 1970?,Pathfinding Queries,movies
+List the movies with the lowest number of votes that were reviewed by someone who follows Lana Wachowski and directed a movie before 2000.,Pathfinding Queries,movies
+"Who acted in ""The Matrix"" and follows someone who directed a movie with more than 5000 votes?",Pathfinding Queries,movies
+"What is the average rating given by people born after 1970 who follow someone who produced ""Speed Racer""?",Pathfinding Queries,movies
+Which movies released before 1995 were reviewed by someone who follows Lilly Wachowski and acted in a movie with Joel Silver?,Pathfinding Queries,movies
+What are the taglines of movies directed by someone followed by Keanu Reeves and born before 1960?,Pathfinding Queries,movies
+"Who produced movies with more than 4000 votes and is followed by someone who acted in ""V for Vendetta""?",Pathfinding Queries,movies
+What is the earliest release year of a movie acted in by someone who follows Lana Wachowski and reviewed a movie with a rating greater than 90?,Pathfinding Queries,movies
+"Who are the people who follow Joel Silver and acted in movies directed by someone who also directed ""The Matrix""?",Pathfinding Queries,movies
+What is the average number of votes for movies produced by someone followed by Lilly Wachowski and born after 1960?,Pathfinding Queries,movies
+"Which movies released after 2005 were reviewed with ""A solid romp"" by someone who follows Keanu Reeves and directed a movie before 2000?",Pathfinding Queries,movies
+What are the taglines of movies directed by someone followed by Lana Wachowski and produced by someone followed by Joel Silver?,Pathfinding Queries,movies
+Which movies released between 2000 and 2005 have more than 1000 votes?,Complex Aggregation Queries,movies
+List the names of people born after 1960 who acted in movies released before 1990.,Complex Aggregation Queries,movies
+What are the titles of movies directed by people born before 1950?,Complex Aggregation Queries,movies
+"Find the names of people who acted in movies with ""Matrix"" in the title.",Complex Aggregation Queries,movies
+Which movies were produced by someone born in 1952?,Complex Aggregation Queries,movies
+What are the taglines of movies reviewed with a rating greater than 90?,Complex Aggregation Queries,movies
+List the names of people who acted in and produced the same movie.,Complex Aggregation Queries,movies
+What is the average rating of movies released after 2000?,Complex Aggregation Queries,movies
+Which person born before 1960 acted in the most movies?,Complex Aggregation Queries,movies
+Find the titles of the top 3 movies with the highest number of votes.,Complex Aggregation Queries,movies
+Which person directed movies with a total vote count greater than 500?,Complex Aggregation Queries,movies
+What are the roles played by Keanu Reeves in movies released after 1995?,Complex Aggregation Queries,movies
+"List the summaries of reviews for movies with ""Matrix"" in the title.",Complex Aggregation Queries,movies
+Find the names of people who wrote and directed the same movie.,Complex Aggregation Queries,movies
+What is the average number of votes for movies released before 1990?,Complex Aggregation Queries,movies
+Which person produced the most movies released after 2000?,Complex Aggregation Queries,movies
+Find the titles of movies reviewed with a rating less than 60.,Complex Aggregation Queries,movies
+What are the taglines of movies acted in by Carrie-Anne Moss?,Complex Aggregation Queries,movies
+List the names of people born after 1950 who directed movies with less than 500 votes.,Complex Aggregation Queries,movies
+Which person acted in movies with the highest average rating?,Complex Aggregation Queries,movies
+Find the titles of the 3 movies with the lowest number of votes.,Complex Aggregation Queries,movies
+What are the roles played by Laurence Fishburne in movies released before 2005?,Complex Aggregation Queries,movies
+List the summaries of reviews with a rating greater than 80 for movies released after 1990.,Complex Aggregation Queries,movies
+Which person wrote the most movies with more than 1000 votes?,Complex Aggregation Queries,movies
+Find the names of people who directed and produced movies released between 1990 and 2000.,Complex Aggregation Queries,movies
+What is the average rating of movies acted in by Keanu Reeves?,Complex Aggregation Queries,movies
+Which person born after 1960 produced the most movies with a rating greater than 90?,Complex Aggregation Queries,movies
+"Find the titles of movies with the word ""The"" in the title and released after 1995.",Complex Aggregation Queries,movies
+What are the taglines of movies directed by people born before 1960?,Complex Aggregation Queries,movies
+List the names of people who acted in movies with a rating greater than 95.,Complex Aggregation Queries,movies
+"Which person directed a movie with ""Matrix"" in the title?",Complex Aggregation Queries,movies
+Find the release years of the top 5 movies with the highest number of votes.,Complex Aggregation Queries,movies
+"What are the roles played by actors in ""The Matrix Revolutions""?",Complex Aggregation Queries,movies
+List the summaries of reviews for movies produced by Joel Silver.,Complex Aggregation Queries,movies
+Which person born before 1955 produced and wrote the same movie?,Complex Aggregation Queries,movies
+Find the average number of votes for movies released after 2000 and with a rating above 80.,Complex Aggregation Queries,movies
+Which person acted in the most movies released before 1995?,Complex Aggregation Queries,movies
+What are the taglines of movies with a rating less than 70 and released after 1980?,Complex Aggregation Queries,movies
+List the names of people who followed someone born before 1950.,Complex Aggregation Queries,movies
+Which person directed movies with the lowest average rating?,Complex Aggregation Queries,movies
+"Find the titles of movies reviewed with the summary ""A solid romp"".",Complex Aggregation Queries,movies
+What are the roles played by actors in movies with more than 1500 votes?,Complex Aggregation Queries,movies
+List the summaries of reviews for movies released between 1998 and 2004.,Complex Aggregation Queries,movies
+Which person wrote movies with a total vote count greater than 2000?,Complex Aggregation Queries,movies
+What is the average rating of movies produced by someone born after 1950?,Complex Aggregation Queries,movies
+Find the names of people born after 1965 who acted in and wrote the same movie.,Complex Aggregation Queries,movies
+"What are the taglines of movies with ""Real"" in the tagline?",Complex Aggregation Queries,movies
+List the names of people who acted in movies released in 2003.,Complex Aggregation Queries,movies
+"Which person produced a movie with ""Racer"" in the title?",Complex Aggregation Queries,movies
+Find the average number of votes for movies with a rating greater than 90 and released before 2000.,Complex Aggregation Queries,movies
+What are the roles of actors in movies produced by someone born in 1952?,Complex Aggregation Queries,movies
+List the names of people who wrote movies with a rating less than 60.,Complex Aggregation Queries,movies
+"Which person acted in ""The Matrix Revolutions"" and was born before 1970?",Complex Aggregation Queries,movies
+"What is the average rating of movies with ""Matrix"" in the title?",Complex Aggregation Queries,movies
+"Find the names of people who follow someone who acted in ""The Matrix Revolutions"".",Complex Aggregation Queries,movies
+"Which movies have ""The"" in their title and were released before 2000?",Complex Aggregation Queries,movies
+List the taglines of movies with more than 1000 votes and released after 1995.,Complex Aggregation Queries,movies
+What are the roles of actors in movies with a rating greater than 95?,Complex Aggregation Queries,movies
+Which person directed movies with a total vote count less than 500?,Complex Aggregation Queries,movies
+Find the titles of movies released between 1990 and 2010 with a rating above 85.,Complex Aggregation Queries,movies
+List the summaries of reviews with a rating less than 70.,Complex Aggregation Queries,movies
+"What are the names of people who were born after 1960 and acted in a movie with ""The"" in the title?",Complex Aggregation Queries,movies
+Which person produced the movie with the lowest number of votes?,Complex Aggregation Queries,movies
+"Find the titles of movies with a tagline containing ""Welcome"".",Complex Aggregation Queries,movies
+What are the roles of actors in movies released in the year 2003?,Complex Aggregation Queries,movies
+List the summaries of reviews for movies with a rating greater than 90 and released after 2000.,Complex Aggregation Queries,movies
+"Which person wrote a movie with ""Matrix"" in the title and was born after 1950?",Complex Aggregation Queries,movies
+What is the average rating of movies released before 1990 and with less than 500 votes?,Complex Aggregation Queries,movies
+"Find the names of people who follow someone who directed a movie with ""The"" in the title.",Complex Aggregation Queries,movies
+Which movies were released after 2000 and have a rating below 70?,Complex Aggregation Queries,movies
+List the taglines of movies acted in by someone born before 1960.,Complex Aggregation Queries,movies
+"What are the roles of actors in movies with ""Matrix"" in the title?",Complex Aggregation Queries,movies
+Which person directed a movie released in 2003 and born after 1950?,Complex Aggregation Queries,movies
+"Find the average number of votes for movies with a tagline containing ""end"".",Complex Aggregation Queries,movies
+List the names of people who acted in movies with more than 1000 votes and released before 2000.,Complex Aggregation Queries,movies
+"Which person produced ""Speed Racer""?",Complex Aggregation Queries,movies
+What are the taglines of movies with a rating greater than 80 and released after 1995?,Complex Aggregation Queries,movies
+"Find the titles of movies reviewed with the summary ""An amazing journey"".",Complex Aggregation Queries,movies
+List the roles of actors in movies directed by someone born before 1960.,Complex Aggregation Queries,movies
+Which person wrote a movie released before 1990 and with more than 500 votes?,Complex Aggregation Queries,movies
+"What is the average rating of movies with a tagline containing ""limits""?",Complex Aggregation Queries,movies
+"Find the names of people who follow someone who produced a movie with ""Speed"" in the title.",Complex Aggregation Queries,movies
+List the taglines of movies acted in by someone born after 1965.,Complex Aggregation Queries,movies
+What are the roles of actors in movies with less than 500 votes?,Complex Aggregation Queries,movies
+Which person directed a movie with a rating less than 60?,Complex Aggregation Queries,movies
+Find the titles of movies with a released year before 1990.,Complex Aggregation Queries,movies
+"What are the summaries of reviews for ""The Matrix Revolutions""?",Complex Aggregation Queries,movies
+List the names of people born before 1960 who acted in a movie with a rating greater than 90.,Complex Aggregation Queries,movies
+"Which person produced a movie with ""Matrix"" in the title and was born after 1950?",Complex Aggregation Queries,movies
+What is the average rating of movies released in the year 2003?,Complex Aggregation Queries,movies
+Find the names of people who follow Carrie-Anne Moss.,Complex Aggregation Queries,movies
+"Which movies have a tagline containing ""beginning""?",Complex Aggregation Queries,movies
+"List the roles of Laurence Fishburne in ""The Matrix Revolutions"".",Complex Aggregation Queries,movies
+"What is the release year of ""Speed Racer""?",Complex Aggregation Queries,movies
+"Find the number of votes for ""The Matrix Revolutions"".",Complex Aggregation Queries,movies
+Which person was born in 1952?,Complex Aggregation Queries,movies
+"List the names of people who acted in movies with a tagline containing ""Speed"".",Complex Aggregation Queries,movies
+"What is the tagline of ""The Matrix Revolutions""?",Complex Aggregation Queries,movies
+"List the names of the people who acted in ""The Matrix"".",Verbose query,movies
+"Who directed ""Speed Racer""?",Verbose query,movies
+"What are the roles Keanu Reeves played in ""Something's Gotta Give""?",Verbose query,movies
+"What is the tagline of the movie ""The Matrix""?",Verbose query,movies
+Which movies were produced by Joel Silver?,Verbose query,movies
+"Who wrote ""Something's Gotta Give""?",Verbose query,movies
+"What is the release year of the movie ""Speed Racer""?",Verbose query,movies
+"How many votes did ""Something's Gotta Give"" receive?",Verbose query,movies
+"Who directed ""Something's Gotta Give""?",Verbose query,movies
+Find the movies with votes between 1000 and 5000.,Verbose query,movies
+List the people born after 1960 who acted in movies released before 2000.,Verbose query,movies
+What are the titles of movies directed by Lana Wachowski?,Verbose query,movies
+Find all movies released in 1999.,Verbose query,movies
+List the people who produced movies with more than 1000 votes.,Verbose query,movies
+What are the taglines of movies released after 2005?,Verbose query,movies
+Which people acted in movies with less than 100 votes?,Verbose query,movies
+Find the movies released between 1980 and 2000 with more than 2000 votes.,Verbose query,movies
+List the names of people born before 1960 who directed a movie.,Verbose query,movies
+"What are the roles of people who acted in ""The Matrix""?",Verbose query,movies
+Which movies were produced by people born before 1955?,Verbose query,movies
+What are the taglines of the movies Keanu Reeves acted in?,Verbose query,movies
+Find all movies released before 1995.,Verbose query,movies
+List the people who wrote movies released after 2000.,Verbose query,movies
+Which people acted in movies directed by Lana Wachowski?,Verbose query,movies
+Find the movies with votes between 500 and 2000.,Verbose query,movies
+List the names of people born after 1970 who produced a movie.,Verbose query,movies
+What are the roles of people who acted in movies released in 2003?,Verbose query,movies
+Which movies were produced by people born after 1950?,Verbose query,movies
+Who directed movies with more than 5000 votes?,Verbose query,movies
+What are the taglines of the movies directed by Nancy Meyers?,Verbose query,movies
+Find all movies released in the year 2008.,Verbose query,movies
+List the people who wrote movies with less than 100 votes.,Verbose query,movies
+What are the titles of movies directed by people born before 1960?,Verbose query,movies
+Find the movies released between 1995 and 2005 with more than 1000 votes.,Verbose query,movies
+List the names of people born before 1970 who acted in a movie.,Verbose query,movies
+"Who are the people who reviewed ""The Matrix"" and gave it a rating above 90?",Verbose query,movies
+What is the average rating of movies reviewed by a person born before 1960?,Verbose query,movies
+"List the movies reviewed by Keanu Reeves, along with their summaries and ratings.",Verbose query,movies
+Find the people who reviewed movies with more than 5000 votes and gave a rating below 70.,Verbose query,movies
+What are the summaries and ratings of reviews for movies released in 1999?,Verbose query,movies
+Which person gave the highest rating to a movie directed by Lana Wachowski?,Verbose query,movies
+"List the movies with a rating of 100, along with the reviewer's name.",Verbose query,movies
+Find the people who wrote and also reviewed the same movie.,Verbose query,movies
+What is the average rating for movies released in 2003?,Verbose query,movies
+Which person reviewed the most movies?,Verbose query,movies
+"List the movies reviewed by a person born after 1960, along with the summary and rating.",Verbose query,movies
+Find the people who acted in and also reviewed the same movie.,Verbose query,movies
+What is the lowest rating given by any reviewer?,Verbose query,movies
+"Which person reviewed ""Speed Racer"" and what was their summary?",Verbose query,movies
+"List the movies with a rating below 60, along with the reviewer's name.",Verbose query,movies
+Find the people who produced and also reviewed the same movie.,Verbose query,movies
+What is the average rating for movies with more than 5000 votes?,Verbose query,movies
+"Which person gave the lowest rating to ""Something's Gotta Give""?",Verbose query,movies
+"List the movies reviewed by Joel Silver, including their summaries and ratings.",Verbose query,movies
+Find the people who directed and also reviewed the same movie.,Verbose query,movies
+What is the highest rating given to a movie released before 1990?,Verbose query,movies
+Which person reviewed the least number of movies?,Verbose query,movies
+"List the movies with ""fun"" in their review summary.",Verbose query,movies
+"Find the people who reviewed movies with ""compelling"" in their review summary.",Verbose query,movies
+"What is the average rating of movies with ""amazing"" in their review summary?",Verbose query,movies
+"Which person wrote a movie that has a review summary containing ""slapdash""?",Verbose query,movies
+"List the movies with ""journey"" in their review summary.",Verbose query,movies
+"Find the people who reviewed movies with ""dark"" in their review summary.",Verbose query,movies
+"What is the average rating of movies with ""romp"" in their review summary.",Verbose query,movies
+Who directed a movie that has a review summary mentioning 'football'?,Verbose query,movies
+List all movies released after 2000 and their respective taglines.,Verbose query,movies
+Find all people born before 1950 and the titles of the movies they directed.,Verbose query,movies
+What are the titles and release years of all movies with more than 3000 votes?,Verbose query,movies
+List the names of all people who acted in movies released in 1999.,Verbose query,movies
+What are the taglines of all movies directed by Lana Wachowski?,Verbose query,movies
+Find all people born between 1950 and 1960 and the movies they produced.,Verbose query,movies
+What are the roles played by Keanu Reeves in all the movies he acted in?,Verbose query,movies
+List the names and birth years of all people who wrote movies released before 2005.,Verbose query,movies
+What are the titles and vote counts of all movies directed by Nancy Meyers?,Verbose query,movies
+Find all people who follow Keanu Reeves.,Verbose query,movies
+Who follows Joel Silver?,Verbose query,movies
+List all people followed by Lana Wachowski.,Verbose query,movies
+Which people are followed by both Keanu Reeves and Joel Silver?,Verbose query,movies
+Who is the most followed person? (Limit to top 3),Verbose query,movies
+Who follows the most people? (Limit to top 3),Verbose query,movies
+List the movies with the highest number of votes (top 5).,Verbose query,movies
+Find the movies with the lowest number of votes (first 3).,Verbose query,movies
+What are the earliest 3 released movies?,Verbose query,movies
+List the 5 most recently released movies.,Verbose query,movies
+Who are the 3 oldest people in the database?,Verbose query,movies
+Who are the 3 youngest people in the database?,Verbose query,movies
+Find the top 3 movies with the highest ratings.,Verbose query,movies
+What are the 3 lowest rated movies?,Verbose query,movies
+List the movies with the longest taglines (top 3).,Verbose query,movies
+Find the movies with the shortest taglines (first 3).,Verbose query,movies
+Which people acted in the top 3 highest-grossing movies? (Assume votes represent gross revenue),Verbose query,movies
+"Which movies were reviewed with the summary ""A solid romp""?",Verbose query,movies
+"Who reviewed a movie with the summary ""Dark, but compelling""?",Verbose query,movies
+"What is the average rating of movies with the summary ""Pretty funny at times""?",Verbose query,movies
+Which movies were reviewed with a rating of 100?,Verbose query,movies
+What are the titles of the 3 movies with the most votes?,Evaluation query,movies
+List the names of the 5 people born between 1950 and 1960.,Evaluation query,movies
+Which movies were released between 1990 and 2000?  Limit to 5 results.,Evaluation query,movies
+Find the names of 3 people who acted in movies released in 1995.,Evaluation query,movies
+What are the taglines of the 5 movies with the fewest votes?,Evaluation query,movies
+What are the names of the people who directed movies released after 2000? Limit to 3.,Evaluation query,movies
+List the titles of 3 movies Keanu Reeves acted in.,Evaluation query,movies
+Which people born before 1960 acted in movies released after 2000? Limit to 5.,Evaluation query,movies
+"What are the roles played by Laurence Fishburne in ""The Matrix Revolutions""?",Evaluation query,movies
+List the names of 5 people who follow Tom Hanks.,Evaluation query,movies
+"What is the rating given by the first 3 people who reviewed ""Apollo 13""?",Evaluation query,movies
+Find the summaries of 5 reviews with a rating greater than 90.,Evaluation query,movies
+What are the titles of the 3 movies produced by Joel Silver?,Evaluation query,movies
+List the names of the people who wrote and directed the same movie. Limit to 3.,Evaluation query,movies
+Which movies did Hugo Weaving act in before 2000? Limit to 5.,Evaluation query,movies
+What are the taglines of the movies released in 1995? Limit to 3.,Evaluation query,movies
+Find the names of 5 people born after 1960 who acted in movies.,Evaluation query,movies
+What are the released years of the first 3 movies Laurence Fishburne acted in?,Evaluation query,movies
+List the names of the people who directed movies with more than 500 votes. Limit to 3.,Evaluation query,movies
+Which movies released before 1990 were reviewed with a rating less than 60? Limit to 5.,Evaluation query,movies
+"What are the roles of the first 3 people who acted in ""The Matrix Revolutions""?",Evaluation query,movies
+Find the summaries of the reviews written by people born after 1960. Limit to 5.,Evaluation query,movies
+What are the titles of the movies directed by people born before 1950? Limit to 3.,Evaluation query,movies
+List the names of the people who produced movies with less than 100 votes. Limit to 5.,Evaluation query,movies
+Which movies released after 2005 were acted in by people born before 1965? Limit to 3.,Evaluation query,movies
+What are the taglines of the movies reviewed with a rating greater than 80? Limit to 5.,Evaluation query,movies
+"Find the born year of the first 3 people who directed ""Apollo 13"".",Evaluation query,movies
+What are the summaries of the reviews for movies released in 1995? Limit to 3.,Evaluation query,movies
+"List the titles of the 5 movies with ""The"" in their title.",Evaluation query,movies
+"What are the names of people who acted in movies with ""Matrix"" in the title? Limit to 3.",Evaluation query,movies
+Which movies released after 2000 have more than 100 votes? Limit to 5.,Evaluation query,movies
+Find the release years of the 3 movies with the lowest number of votes.,Evaluation query,movies
+What are the taglines of movies acted in by Keanu Reeves? Limit to 3.,Evaluation query,movies
+List the names of people who directed or produced movies released before 1990. Limit to 5.,Evaluation query,movies
+Which movies were reviewed with a rating between 70 and 90? Limit to 3.,Evaluation query,movies
+What are the roles of Hugo Weaving in the movies he acted in? Limit to 5.,Evaluation query,movies
+Find the born years of the people who wrote movies released after 2000. Limit to 3.,Evaluation query,movies
+What are the summaries of reviews with a rating less than 60? Limit to 5.,Evaluation query,movies
+List the titles of movies produced by people born between 1950 and 1960. Limit to 3.,Evaluation query,movies
+Which people acted in movies released in the same year they were born? Limit to 5.,Evaluation query,movies
+What are the taglines of movies directed by people born before 1960? Limit to 3.,Evaluation query,movies
+Find the number of votes for the movies released before 1980. Limit to 5.,Evaluation query,movies
+What are the roles of people born after 1960 in movies released after 2000? Limit to 3.,Evaluation query,movies
+List the names of people who followed someone born before 1950. Limit to 5.,Evaluation query,movies
+Which movies released between 1990 and 2000 have less than 200 votes? Limit to 3.,Evaluation query,movies
+What are the summaries of reviews for movies with more than 500 votes? Limit to 5.,Evaluation query,movies
+"Find the born years of people who acted in movies with ""The"" in the title. Limit to 3.",Evaluation query,movies
+What are the release years of movies directed by people born after 1960? Limit to 3.,Evaluation query,movies
+List the names of people who wrote and produced the same movie. Limit to 5.,Evaluation query,movies
+Which movies acted in by Laurence Fishburne were released before 2000? Limit to 3.,Evaluation query,movies
+"What are the taglines of movies reviewed with ""amazing"" in the summary? Limit to 3.",Evaluation query,movies
+Find the number of votes for movies reviewed with a rating greater than 90. Limit to 5.,Evaluation query,movies
+What are the roles of Tom Hanks in movies released after 1990? Limit to 3.,Evaluation query,movies
+"List the names of people who produced movies with ""The"" in the title. Limit to 5.",Evaluation query,movies
+Which movies released before 1990 were directed by people born after 1940? Limit to 3.,Evaluation query,movies
+"What are the summaries of reviews with ""fun"" in the summary? Limit to 5.",Evaluation query,movies
+Find the born years of people who wrote movies with less than 100 votes. Limit to 3.,Evaluation query,movies
+What are the release years of movies acted in by Hugo Weaving? Limit to 3.,Evaluation query,movies
+List the names of people who directed and acted in the same movie. Limit to 5.,Evaluation query,movies
+Which movies released after 2000 were produced by Joel Silver? Limit to 3.,Evaluation query,movies
+What are the taglines of movies reviewed with a rating less than 60? Limit to 3.,Evaluation query,movies
+"Find the number of votes for movies with ""Matrix"" in the title. Limit to 5.",Evaluation query,movies
+What are the roles of Keanu Reeves in movies released after 1995? Limit to 3.,Evaluation query,movies
+List the names of people who followed someone born after 1960. Limit to 5.,Evaluation query,movies
+"Which movies released before 2000 were reviewed with ""compelling"" in the summary? Limit to 3.",Evaluation query,movies
+"What are the summaries of reviews for movies with ""The"" in the title? Limit to 5.",Evaluation query,movies
+Find the born years of people who acted in movies released in 1995. Limit to 3.,Evaluation query,movies
+What are the release years of movies produced by people born before 1950? Limit to 3.,Evaluation query,movies
+List the names of people who wrote movies reviewed with a rating greater than 80. Limit to 5.,Evaluation query,movies
+Which movies acted in by Tom Hanks were released after 1995? Limit to 3.,Evaluation query,movies
+What are the taglines of movies directed by people born after 1950? Limit to 3.,Evaluation query,movies
+"Find the number of votes for movies reviewed with ""funny"" in the summary. Limit to 5.",Evaluation query,movies
+What are the roles of Laurence Fishburne in movies produced by Joel Silver? Limit to 3.,Evaluation query,movies
+"List the names of people who followed someone who acted in ""The Matrix Revolutions"". Limit to 5.",Evaluation query,movies
+Which movies released before 1990 were reviewed with a rating between 70 and 90? Limit to 3.,Evaluation query,movies
+What are the summaries of reviews for movies acted in by Keanu Reeves? Limit to 5.,Evaluation query,movies
+Find the born years of people who directed movies with more than 500 votes. Limit to 3.,Evaluation query,movies
+What are the release years of movies written by people born after 1960? Limit to 3.,Evaluation query,movies
+List the names of people who produced and acted in the same movie. Limit to 5.,Evaluation query,movies
+Which movies acted in by Hugo Weaving were released after 2005? Limit to 3.,Evaluation query,movies
+"What are the taglines of movies reviewed with ""journey"" in the summary? Limit to 3.",Evaluation query,movies
+"Find the number of votes for movies with ""Cloud"" in the title. Limit to 5.",Evaluation query,movies
+What are the roles of Tom Hanks in movies directed by people born before 1950? Limit to 3.,Evaluation query,movies
+List the names of people who followed Laurence Fishburne. Limit to 5.,Evaluation query,movies
+Which movies released before 2000 were produced by people born after 1955? Limit to 3.,Evaluation query,movies
+What are the summaries of reviews for movies directed by people born after 1960? Limit to 5.,Evaluation query,movies
+"Find the born years of people who acted in movies with ""Apollo"" in the title. Limit to 3.",Evaluation query,movies
+What are the release years of movies written by people born before 1950? Limit to 3.,Evaluation query,movies
+List the names of people who directed movies reviewed with a rating less than 60. Limit to 5.,Evaluation query,movies
+Which movies acted in by Keanu Reeves were released before 1990? Limit to 3.  (Likely no results based on provided data),Evaluation query,movies
+What are the taglines of movies produced by people born before 1960? Limit to 3.,Evaluation query,movies
+Find the number of votes for movies released in 1995. Limit to 5.,Evaluation query,movies
+What are the roles of Hugo Weaving in movies released before 2000? Limit to 3.,Evaluation query,movies
+"List the names of people who followed someone who directed ""Apollo 13"". Limit to 5.",Evaluation query,movies
+"Which movies released after 2005 were reviewed with ""amazing"" in the summary? Limit to 3.",Evaluation query,movies
+What are the summaries of reviews for movies produced by Joel Silver? Limit to 5.,Evaluation query,movies
+Find the born years of people who wrote movies released in 1995. Limit to 3.,Evaluation query,movies
+What are the release years of movies directed by people born before 1940? Limit to 3. (Likely no results based on provided data),Evaluation query,movies
+List the names of people who produced movies reviewed with a rating greater than 90. Limit to 5.,Evaluation query,movies
+Which movies acted in by Laurence Fishburne were released after 2005? Limit to 3. (Likely no results based on provided data),Evaluation query,movies
+Which movies released between 1995 and 2005 have more than 1000 votes?,Multi-step Queries,movies
+List the names of people who acted in movies directed by Lana Wachowski.,Multi-step Queries,movies
+Find the titles of movies produced by Joel Silver after the year 1990.,Multi-step Queries,movies
+"Who are the people who acted in ""The Matrix"" and were born before 1970?",Multi-step Queries,movies
+What are the taglines of movies released in 1999 and have more than 5000 votes?,Multi-step Queries,movies
+Which movies did Keanu Reeves act in and were released after 2000?,Multi-step Queries,movies
+List the names of people who directed movies with more than 2000 votes.,Multi-step Queries,movies
+Find the titles of movies reviewed by people born after 1960.,Multi-step Queries,movies
+Who are the people who produced and directed the same movie?,Multi-step Queries,movies
+What are the release years of movies acted in by people born in 1964?,Multi-step Queries,movies
+List the names of people who wrote and directed movies released before 2005.,Multi-step Queries,movies
+Find the titles of movies with a rating of at least 80 and reviewed by people born before 1980.,Multi-step Queries,movies
+"Who directed movies with ""Dark, but compelling"" reviews?",Multi-step Queries,movies
+"What are the taglines of movies with ""An amazing journey"" reviews?",Multi-step Queries,movies
+"List the names of people who acted in movies with ""Silly, but fun"" reviews.",Multi-step Queries,movies
+"Find the titles of movies released after 1990 with ""A solid romp"" reviews.",Multi-step Queries,movies
+"Which movies released before 2000 were reviewed with ""Pretty funny at times""?",Multi-step Queries,movies
+Who are the people born after 1950 who acted in movies with ratings above 90?,Multi-step Queries,movies
+"What are the release years of movies with ""Fun, but a little far fetched"" reviews?",Multi-step Queries,movies
+Find the taglines of movies directed by people born between 1950 and 1960.,Multi-step Queries,movies
+Which movies produced by Joel Silver have more than 3000 votes?,Multi-step Queries,movies
+"Who acted in movies released in the same year as ""The Matrix""?",Multi-step Queries,movies
+What are the ratings given by people born before 1970 for movies released after 1995?,Multi-step Queries,movies
+"Find the names of people who directed movies with ""The coolest football movie ever"" reviews.",Multi-step Queries,movies
+"List the titles of movies with ""You had me at Jerry"" reviews and released before 2010.",Multi-step Queries,movies
+Who wrote movies with ratings between 70 and 90?,Multi-step Queries,movies
+What are the release years of movies produced by people born after 1945?,Multi-step Queries,movies
+Find the taglines of movies acted in by Keanu Reeves and released after 1995.,Multi-step Queries,movies
+Which movies directed by Lana Wachowski have more than 4000 votes?,Multi-step Queries,movies
+"Who reviewed movies with the tagline ""Welcome to the Real World""?",Multi-step Queries,movies
+What are the roles played by Keanu Reeves in movies released after 2000?,Multi-step Queries,movies
+Find the names of people who produced movies with ratings above 85.,Multi-step Queries,movies
+List the titles of movies released between 1980 and 2000 with more than 1000 votes.,Multi-step Queries,movies
+"Who directed movies with ""Slapstick redeemed only by the Robin Williams and"" reviews?",Multi-step Queries,movies
+What are the summaries of reviews for movies released in 1999?,Multi-step Queries,movies
+Find the names of people born before 1960 who acted in movies directed by people born after 1960.,Multi-step Queries,movies
+"Which movies with ""An amazing journey"" reviews were released after 1990?",Multi-step Queries,movies
+"Who produced movies with ""Silly, but fun"" reviews and more than 2000 votes?",Multi-step Queries,movies
+"What are the release years of movies with ""A solid romp"" reviews and directed by people born before 1970?",Multi-step Queries,movies
+"Find the taglines of movies with ""Pretty funny at times"" reviews and released before 2005.",Multi-step Queries,movies
+List the names of people born after 1955 who acted in movies with ratings above 95.,Multi-step Queries,movies
+"Which movies with ""Fun, but a little far fetched"" reviews have more than 500 votes?",Multi-step Queries,movies
+"Who directed movies with taglines containing the word ""Real""?",Multi-step Queries,movies
+What are the summaries of reviews given by people born after 1970 for movies released before 2005?,Multi-step Queries,movies
+Find the names of people who produced and wrote the same movie.,Multi-step Queries,movies
+"Which movies released between 1990 and 2005 have ""Dark, but compelling"" reviews?",Multi-step Queries,movies
+"Who acted in movies with ""The coolest football movie ever"" reviews and released after 1995?",Multi-step Queries,movies
+"What are the taglines of movies with ""You had me at Jerry"" reviews and more than 1000 votes?",Multi-step Queries,movies
+Find the names of people who wrote movies released before 2000 with ratings between 80 and 95.,Multi-step Queries,movies
+Which movies produced by people born after 1950 have more than 3000 votes?,Multi-step Queries,movies
+"Who acted in ""The Matrix"" and also directed another movie?",Multi-step Queries,movies
+"What are the ratings given for movies released in the same year as ""Speed Racer""?",Multi-step Queries,movies
+"Find the names of people who directed movies reviewed with ""An amazing journey"".",Multi-step Queries,movies
+"List the titles of movies with ""Silly, but fun"" reviews released after 1995.",Multi-step Queries,movies
+"Who wrote movies with ""A solid romp"" reviews and released before 2010?",Multi-step Queries,movies
+"What are the release years of movies with ""Pretty funny at times"" reviews and more than 500 votes?",Multi-step Queries,movies
+Find the taglines of movies acted in by people born after 1960 and released after 2000.,Multi-step Queries,movies
+"Which movies directed by people born between 1955 and 1965 have ""Fun, but a little far fetched"" reviews?",Multi-step Queries,movies
+"Who reviewed movies with taglines containing the word ""World""?",Multi-step Queries,movies
+What are the summaries of reviews for movies produced by Joel Silver?,Multi-step Queries,movies
+Find the names of people who acted in and produced the same movie.,Multi-step Queries,movies
+"Which movies with ""Dark, but compelling"" reviews have more than 2000 votes?",Multi-step Queries,movies
+"Who directed movies with ""The coolest football movie ever"" reviews released before 2005?",Multi-step Queries,movies
+"What are the taglines of movies with ""You had me at Jerry"" reviews and directed by people born before 1970?",Multi-step Queries,movies
+Find the names of people who wrote movies released after 2000 with ratings between 75 and 90.,Multi-step Queries,movies
+"Which movies produced by people born before 1955 have ""An amazing journey"" reviews?",Multi-step Queries,movies
+"Who acted in movies released in the same year as ""Something's Gotta Give""?",Multi-step Queries,movies
+"What are the ratings given for movies with the tagline ""Speed has no limits""?",Multi-step Queries,movies
+"Find the names of people who directed movies reviewed with ""Silly, but fun"".",Multi-step Queries,movies
+"List the titles of movies with ""A solid romp"" reviews released after 2000.",Multi-step Queries,movies
+"Who wrote movies with ""Pretty funny at times"" reviews and released before 2010?",Multi-step Queries,movies
+"What are the release years of movies with ""Fun, but a little far fetched"" reviews and more than 1000 votes?",Multi-step Queries,movies
+Find the taglines of movies acted in by people born before 1960 and released after 1990.,Multi-step Queries,movies
+"Which movies directed by people born after 1960 have ""Dark, but compelling"" reviews?",Multi-step Queries,movies
+"Who reviewed movies with taglines containing the word ""Matrix""?",Multi-step Queries,movies
+What are the summaries of reviews for movies produced by people born after 1950?,Multi-step Queries,movies
+Find the names of people who acted in and wrote the same movie.,Multi-step Queries,movies
+"Which movies with ""The coolest football movie ever"" reviews have more than 500 votes?",Multi-step Queries,movies
+"Who directed movies with ""You had me at Jerry"" reviews released before 2005?",Multi-step Queries,movies
+"What are the taglines of movies with ""An amazing journey"" reviews and directed by people born after 1965?",Multi-step Queries,movies
+Find the names of people who wrote movies released before 2000 with ratings between 85 and 100.,Multi-step Queries,movies
+"Which movies produced by people born between 1945 and 1955 have ""Silly, but fun"" reviews?",Multi-step Queries,movies
+Who acted in movies released in the same year as a movie directed by Lana Wachowski?,Multi-step Queries,movies
+"What are the ratings given for movies with taglines containing the word ""Speed""?",Multi-step Queries,movies
+"Find the names of people who directed movies reviewed with ""A solid romp"".",Multi-step Queries,movies
+"List the titles of movies with ""Pretty funny at times"" reviews released after 1990.",Multi-step Queries,movies
+"Who wrote movies with ""Fun, but a little far fetched"" reviews and released before 2010?",Multi-step Queries,movies
+"What are the release years of movies with ""Dark, but compelling"" reviews and more than 2000 votes?",Multi-step Queries,movies
+Find the taglines of movies acted in by Keanu Reeves and directed by Lana Wachowski.,Multi-step Queries,movies
+"Which movies directed by people born before 1960 have ""The coolest football movie ever"" reviews?",Multi-step Queries,movies
+Who reviewed movies produced by Joel Silver and released before 2005?,Multi-step Queries,movies
+"What are the summaries of reviews for movies with taglines containing the word ""Welcome""?",Multi-step Queries,movies
+Find the names of people who produced and directed movies released after 2000.,Multi-step Queries,movies
+"Which movies with ""You had me at Jerry"" reviews have more than 1000 votes and were released before 2005?",Multi-step Queries,movies
+"Who directed movies with ""An amazing journey"" reviews released after 2000?",Multi-step Queries,movies
+"What are the taglines of movies with ""Silly, but fun"" reviews and directed by people born before 1960?",Multi-step Queries,movies
+Find the names of people who wrote movies released after 1995 with ratings between 90 and 100.,Multi-step Queries,movies
+"Which movies produced by people born after 1955 have ""A solid romp"" reviews and more than 500 votes?",Multi-step Queries,movies
+Who acted in movies directed by Lana Wachowski and released before 2005?,Multi-step Queries,movies
+"What are the ratings given for movies with taglines containing the word ""Real"" and released after 1990?",Multi-step Queries,movies
