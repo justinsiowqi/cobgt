@@ -4,6 +4,13 @@
 This project is an implementation of the paper "Robust Text-to-Cypher Using Combination of BERT, GraphSAGE, and Transformer (CoBGT) Model." The [original paper](https://www.mdpi.com/2076-3417/14/17/7881) proposes a novel technique to translate natural language text into cypher queries for the Neo4j graph database.
 Please note that this paper was not authored by me, and the original authors did not provide a public GitHub repository for reference. The code in this repository represents my interpretation of the ideas from the paper, and as such, it may not be fully accurate or complete. It is an ongoing work, specifically focusing on the relation and properties prediction module.
 
+## Credits and Acknowledgements
+Parts of this project leverages the work by :
+- [Synthetic dataset created with Gemini 1.5 Pro](https://github.com/neo4j-labs/text2cypher/tree/main/datasets/synthetic_gemini_demodbs) by Tomaz Bratanic
+- [Libcypher Parser](https://github.com/cleishm/libcypher-parser) by Chris Leishman, Louis-Pierre Beaumont, Jeff Lovitz and Dvir Dukhan
+
+For more details, you can visit the project page and the FAQ.
+
 ## Prerequisites
 To run this project, you'll need to install [libcypher-parser](https://github.com/cleishm/libcypher-parser). For more information about how to install and use the package, you can refer to my [cypher parser](https://github.com/justinsiowqi/cypher-parser) repository.
 
@@ -13,6 +20,7 @@ To run this module, you'll need to generate a dataset containing question-cypher
 ```bash
 cd key_value
 python generate_questions.py
+python generate_cypher.py
 ```
 
 ## Running the Relation Properties Module
