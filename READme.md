@@ -14,6 +14,12 @@ For more details, you can visit the project page and the FAQ.
 ## Prerequisites
 To run this project, you'll need to install [libcypher-parser](https://github.com/cleishm/libcypher-parser). For more information about how to install and use the package, you can refer to my [cypher parser](https://github.com/justinsiowqi/cypher-parser) repository.
 
+You will also need to install the spaCy English Core Model.
+```bash
+pip install spacy
+python -m spacy download en_core_web_lg
+```
+
 ## Running the Key Value Extraction Module
 To run this module, you'll need to generate a dataset containing question-cypher pairs in order to fine-tune the BERT model. Alternatively, you can attach your own dataset.
 
