@@ -79,7 +79,9 @@ def predict_bio_tags(question, model, tokenizer):
         predictions = torch.argmax(logits, dim=2)
         
     predicted_tags = predictions.squeeze().tolist()
-    label_map = {0: 'O', 1: 'B', 2: 'I'}  
     predicted_labels = [label_map[tag] for tag in predicted_tags]
+    
+    # Remove CLS and SEP Token
+    predicted_labels = predicted_labels[1:-1]
     
     return predicted_labels
