@@ -71,7 +71,7 @@ def finetune_model(model_name, questions, bio_tags):
     return model, tokenizer
 
 # Function to Classify BIO Tags
-def predict_bio_tags(question):
+def predict_bio_tags(question, model, tokenizer):
     encoding = tokenizer(question, return_tensors='pt', padding=True, truncation=True, max_length=128)
     with torch.no_grad():
         outputs = model(**encoding)

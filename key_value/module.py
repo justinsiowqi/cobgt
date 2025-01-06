@@ -72,7 +72,9 @@ def main():
     print("---------- Step 3: Test Model---------- ")
     
     # Test Model
+    print(sample_question)
     predicted_tags = predict_bio_tags(sample_question, model, tokenizer)
+    print(predicted_tags)
         
 if __name__ == "__main__":
     main()
