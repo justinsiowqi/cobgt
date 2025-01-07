@@ -1,12 +1,9 @@
+import os
 import networkx as nx
 import matplotlib.pyplot as plt
 
-# Reverse the List so the Plot Shows Rightside Up
-word_term1_rev = word_term1[::-1]
-rel_prop1_rev = tree1_rel_prop[::-1]
-
-word_term2_rev = word_term2[::-1]
-rel_prop2_rev = tree2_rel_prop[::-1]
+# Define Path
+SAVE_DIR = "visuals"
 
 # Functiont o Construct a NetworkX Graph and Add the Relevant Node and Connections
 def construct_graph(word_term_rev, rel_prop_rev):
@@ -25,22 +22,19 @@ def construct_graph(word_term_rev, rel_prop_rev):
             
     return G
 
-# Construct the Graphs for Both Questions and Cypher Statements
-G1 = construct_graph(word_term1_rev, rel_prop1_rev)
-G2 = construct_graph(word_term2_rev, rel_prop2_rev)
-
 # Function to Plot the NetworkX Graph as a Custom Plot
-def custom_plot(G, word_term_rev, rel_prop_rev):
+def custom_plot(G, word_term_rev, rel_prop_rev, filename):
     pos = {node: (0, idx) for idx, node in enumerate(word_term_rev)}  
     pos.update({node: (1, idx) for idx, node in enumerate(rel_prop_rev)}) 
 
     plt.figure(figsize=(12, 8))
     nx.draw(G, pos, with_labels=True, node_size=3000, node_color='lightblue', font_size=10, font_color='black', font_weight='bold', arrows=True)
     plt.axis('off')
-    plt.show()
     
-# Plot Graph 1
-custom_plot(G1, word_term1_rev, rel_prop1_rev)
-
-# Plot Graph 2
-custom_plot(G2, word_term2_rev, rel_prop2_rev)
+    # plt.show()
+    
+    # Create the Directory
+    filepath = os.path.join(SAVE_DIR, filename)
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    
+    plt.savefig(filepath)

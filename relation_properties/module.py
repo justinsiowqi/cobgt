@@ -1,6 +1,7 @@
 from utils import read_question_cypher, write_cypher
 from build_v1_nodes import remove_stopwords, chunk_and_tag    
 from build_v2_nodes import run_cypher_lint, extract_parse_tree, build_hierarchy, split_parsed_trees, split_hierarchical_trees, find_label_type, extract_label_details, substitute_property_details, extract_match, extract_node_relationship
+from connect_v1_v2_nodes import construct_graph, custom_plot
 
 # Define File Paths Here
 cyp_file_path = "cypher.cyp"
@@ -88,6 +89,27 @@ def main():
 
     print(f"Tree 1 Relationship and Properties: {tree1_rel_prop}")
     print(f"Tree 2 Relationship and Properties: {tree2_rel_prop}")
+    
+    print("---------- Step 3: Connect V1 and V2 Nodes ---------- ")
+    
+    # Reverse the List so the Plot Shows Rightside Up
+    word_term1_rev = word_term1[::-1]
+    rel_prop1_rev = tree1_rel_prop[::-1]
+
+    word_term2_rev = word_term2[::-1]
+    rel_prop2_rev = tree2_rel_prop[::-1]
+    
+    # Construct the Graphs for Both Questions and Cypher Statements
+    G1 = construct_graph(word_term1_rev, rel_prop1_rev)
+    G2 = construct_graph(word_term2_rev, rel_prop2_rev)
+    
+    # Plot Graph 1
+    custom_plot(G1, word_term1_rev, rel_prop1_rev, "graph1.png")
+
+    # Plot Graph 2
+    custom_plot(G2, word_term2_rev, rel_prop2_rev, "graph2.png")
+    
+    print("Graph 1 and Graph 2 saved successfully.")
     
 if __name__ == "__main__":
     main()
