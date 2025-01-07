@@ -5,6 +5,7 @@ import pandas as pd
 
 # Define the BIO Map
 label_map = {'O': 0, 'B': 1, 'I': 2}
+inv_label_map = {0: 'O', 1: 'B', 2: 'I'}
 
 # Define the custom Dataset class
 class CypherDataset(Dataset):
@@ -72,6 +73,7 @@ def finetune_model(model_name, questions, bio_tags):
 
 # Function to Classify BIO Tags
 def predict_bio_tags(question, model, tokenizer):
+        
     encoding = tokenizer(question, return_tensors='pt', padding=True, truncation=True, max_length=128)
     with torch.no_grad():
         outputs = model(**encoding)
@@ -79,7 +81,8 @@ def predict_bio_tags(question, model, tokenizer):
         predictions = torch.argmax(logits, dim=2)
         
     predicted_tags = predictions.squeeze().tolist()
-    predicted_labels = [label_map[tag] for tag in predicted_tags]
+    print(predicted_tags)
+    predicted_labels = [inv_label_map[tag] for tag in predicted_tags]
     
     # Remove CLS and SEP Token
     predicted_labels = predicted_labels[1:-1]

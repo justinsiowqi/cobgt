@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 from datasets import Dataset, Features, Value
-from transformers import AutoTokenizer, AutoModel, TrainingArguments, Trainer
+from transformers import BertTokenizer, BertForTokenClassification, TrainingArguments, Trainer
 import evaluate
 
 from annotate import annotate_bio_tags
@@ -39,21 +39,40 @@ def main():
     # Save the CSV
     df.to_csv(OUTPUT_CSV, index=False)
     
-#     print("---------- Step 2: Fine-Tune Model ---------- ")
+    print("---------- Step 2: Fine-Tune Model ---------- ")
     
-#     # Convert Question and BIO Tags to List
-#     questions = df['question'].tolist()
-#     bio_tags = df['bio_tags'].tolist()
+    # Convert Question and BIO Tags to List
+    questions = df['question'].tolist()
+    bio_tags = df['bio_tags'].tolist()
     
-#     # Finetune the Model
-#     model, tokenizer = finetune_model(MODEL_NAME, questions, bio_tags)
+    # Finetune the Model
+    model, tokenizer = finetune_model(MODEL_NAME, questions, bio_tags)
 
-#     print("---------- Step 3: Test Model---------- ")
+    print("---------- Step 3: Run Inference ---------- ")
     
-#     # Test Model
-#     print(sample_question)
-#     predicted_tags = predict_bio_tags(sample_question, model, tokenizer)
-#     print(predicted_tags)
+    # Load Fine-Tuned Model and Tokenizer
+    tokenizer = BertTokenizer.from_pretrained("bert-base-cased")
+    model = BertForTokenClassification.from_pretrained("results/checkpoint-210", num_labels=3)
+    
+    # Run Inference
+    print(sample_question)
+    predicted_tags = predict_bio_tags(sample_question, model, tokenizer)
+    print(predicted_tags)
+    
+    # Map BIO Tags to Natural Language Question
+    tokens = tokenizer.tokenize(sample_question)
+    
+    # Check if Tokens and BIO Tags Match
+    if len(tokens) == len(predicted_tags):
+    
+        final = []
+        for idx, item in enumerate(predicted_tags):
+            if item != "O":
+                final.append(tokens[idx])
+        print(f"Key value sucessfully extracted: {final}")
+    
+    else:
+        print("Error: Tokens and BIO tags do not match.")
         
 if __name__ == "__main__":
     main()
