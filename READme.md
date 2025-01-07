@@ -23,10 +23,12 @@ python -m spacy download en_core_web_lg
 ## Running the Key Value Extraction Module
 To run this module, you'll need to generate a dataset containing question-cypher pairs in order to fine-tune the BERT model. Alternatively, you can attach your own dataset.
 
+Terminal commands to run this module.
 ```bash
 cd key_value
 python generate_questions.py
 python generate_cypher.py
+python module.py
 ```
 
 ## Running the Relation Properties Module
@@ -44,4 +46,10 @@ Cypher 1: <Your Cypher Statement>
 
 Question 2: <Your Question>
 Cypher 2: <Your Cypher Statement>
+```
+
+Terminal commands to run this module.
+```bash
+cd relation_properties
+python module.py
 ```
