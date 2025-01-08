@@ -2,6 +2,7 @@ from utils import read_question_cypher, write_cypher
 from build_v1_nodes import remove_stopwords, chunk_and_tag    
 from build_v2_nodes import run_cypher_lint, extract_parse_tree, build_hierarchy, split_parsed_trees, split_hierarchical_trees, find_label_type, extract_label_details, substitute_property_details, extract_match, extract_node_relationship
 from connect_v1_v2_nodes import construct_graph, custom_plot
+from connect_v1_v1_nodes import calculate_similarity, extract_similar_words
 
 # Define File Paths Here
 cyp_file_path = "cypher.cyp"
@@ -110,6 +111,22 @@ def main():
     custom_plot(G2, word_term2_rev, rel_prop2_rev, "graph2.png")
     
     print("Graph 1 and Graph 2 saved successfully.")
+    
+    print("---------- Step 4: Connect V1 and V1 Nodes ---------- ")
+    
+    # Extract the Word Terms Without Their POS Tags
+    word_term1_notag = chunk_and_tag(qn1_fil, return_tag=False)
+    word_term2_notag = chunk_and_tag(qn2_fil, return_tag=False)
+    
+    print(f"Word Term (No Tag) for Question 1: {word_term1_notag}")
+    print(f"Word Term (No Tag) for Question 2: {word_term2_notag}")
+    
+    # Encode and Calculate Similarity Scores
+    sim_scores = calculate_similarity(word_term1_notag, word_term2_notag)
+    
+    # Extract Similar Word Terms Above 0.65 Threshold
+    sim_words = extract_similar_words(sim_scores)
+    print(f"Text Similarity Score > 0.65: {sim_words}")
     
 if __name__ == "__main__":
     main()
