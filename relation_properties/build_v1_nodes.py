@@ -3,7 +3,6 @@ from nltk.corpus import stopwords
 from nltk import pos_tag, word_tokenize
 from nltk.chunk import ne_chunk
 
-
 # ---------- Step 1: Remove Stopwords ----------
 
 # Download the necessary NLTK data files
@@ -69,7 +68,7 @@ def chunk_and_tag(qn_fil, return_tag=True):
     
     # Convert POS Tags from Set to String
     if return_tag:
-        word_term = [label + f" ({tag})" for label, tag in pos_tags]
+        word_term = [label + f" {tag}" for label, tag in pos_tags]
     else:
         word_term = [label for label, tag in pos_tags]
         

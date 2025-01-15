@@ -1,4 +1,4 @@
-Question 1: Who were the actors in "The Matrix", and how many were there? Also, who produced the movie?
-Cypher 1: MATCH (a:Actor)-[:ACTED_IN]->(m:Movie), (p:Producer)-[:PRODUCED]->(m) WHERE m.title = "The Matrix" RETURN a.name, COUNT(a), p.name;
-Question 2: Who were the actors in "Cloud Atlas", and how many were there? Also, who produced the movie?
-Cypher 2: MATCH (a:Actor)-[:ACTED_IN]->(m:Movie), (p:Producer)-[:PRODUCED]->(m) WHERE m.title = "Cloud Atlas" RETURN a.name, COUNT(a), p.name
+Question 1: Which films were helmed by Ron Howard that premiered before 1987?
+Cypher 1: MATCH (m:Movie)<-[:DIRECTED_BY]-(d:Director) WHERE d.name = "Ron Howard" and m.released < 1987 RETURN m.released, m.title;
+Question 2: Provide the list of movies directed by Scott Hicks that were released prior to 2000.
+Cypher 2: MATCH (m:Movie)<-[:DIRECTED_BY]-(d:Director) WHERE d.name = "Scott Hicks" and m.released < 2000 RETURN m.released, m.title;

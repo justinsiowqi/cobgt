@@ -114,15 +114,9 @@ def main():
     
     print("---------- Step 4: Connect V1 and V1 Nodes ---------- ")
     
-    # Extract the Word Terms Without Their POS Tags
-    word_term1_notag = chunk_and_tag(qn1_fil, return_tag=False)
-    word_term2_notag = chunk_and_tag(qn2_fil, return_tag=False)
-    
-    print(f"Word Term (No Tag) for Question 1: {word_term1_notag}")
-    print(f"Word Term (No Tag) for Question 2: {word_term2_notag}")
-    
     # Encode and Calculate Similarity Scores
-    sim_scores = calculate_similarity(word_term1_notag, word_term2_notag)
+    sim_scores = calculate_similarity(word_term1, word_term2)
+    print(f"Sim Scores are as follows: {sim_scores}")
     
     # Extract Similar Word Terms Above 0.65 Threshold
     sim_words = extract_similar_words(sim_scores)

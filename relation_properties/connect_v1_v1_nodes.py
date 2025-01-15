@@ -3,8 +3,8 @@ from sentence_transformers import SentenceTransformer
 
 def calculate_similarity(word_term1_notag, word_term2_notag):
     
-    # Download the MiniLM Model (Highest Accuracy + Fastest)
-    model = SentenceTransformer("all-MiniLM-L6-v2")
+    # Download the MiniLM Model (Highest Accuracy)
+    model = SentenceTransformer("all-mpnet-base-v2")
     
     # Encode Each Word in the Word Term No Tag List
     word_term1_embeddings = {}
