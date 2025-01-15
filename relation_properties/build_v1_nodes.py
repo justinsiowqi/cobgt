@@ -18,6 +18,10 @@ nltk.download('words')
 # Get a List of Stopwords from NLTK
 stop_list = stopwords.words("english")
 
+# Remove the Following Stopwords from the Stopwords List
+stop_list.remove("before")
+stop_list.remove("after")
+
 # Function to Remove Stopwords from Question
 def remove_stopwords(qn):
     """
