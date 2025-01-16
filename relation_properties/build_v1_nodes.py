@@ -1,7 +1,9 @@
 import nltk
 from nltk.corpus import stopwords
-from nltk import pos_tag, word_tokenize
+from nltk import pos_tag
 from nltk.chunk import ne_chunk
+
+import spacy
 
 # ---------- Step 1: Remove Stopwords ----------
 
@@ -17,10 +19,6 @@ nltk.download('words')
 
 # Get a List of Stopwords from NLTK
 stop_list = stopwords.words("english")
-
-# Remove the Following Stopwords from the Stopwords List
-stop_list.remove("before")
-stop_list.remove("after")
 
 # Function to Remove Stopwords from Question
 def remove_stopwords(qn):
@@ -49,7 +47,7 @@ def remove_stopwords(qn):
 # Function to Chunk and POS Tag Sentences
 def chunk_and_tag(qn_fil, return_tag=True):
     """
-    Chunk and POS-Tag a sentence.
+    Chunk and POS-tag a sentence, while keeping the integrity of people entities. 
     
     Args:
         qn_fil: The filtered natural language question with stopwords removed.
@@ -58,14 +56,35 @@ def chunk_and_tag(qn_fil, return_tag=True):
     Returns:
         word_term: A list of words from the filtered question. Each word comes with a POS-Tag.
     """
-    # Perform Chunking
-    tokens = word_tokenize(qn_fil)
+    # Load spaCy's Transformer Model
+    nlp = spacy.load('en_core_web_trf')
+    
+    # Tokenize the Sentence
+    doc = nlp(qn_fil)
+        
+    # List to hold chunked words
     chunked_output = []
-    for token in tokens:
-        chunked_output.append(token)
+    i = 0
+    
+    # Iterate Over Tokens and Merge Person Tags
+    while i < len(doc):
+        token = doc[i]
+
+        # Check for Consecutive Person Tags
+        if token.ent_type_ == "PERSON":  
+            person_name = token.text
+            while i + 1 < len(doc) and doc[i + 1].ent_type_ == "PERSON":
+                i += 1
+                person_name += " " + doc[i].text 
+
+            chunked_output.append(person_name) 
+        else:
+            chunked_output.append(token.text)  
+
+        i += 1
 
     # Clean the Chunked Output by Keeping Only Alphanumeric
-    filtered_output = [word for word in chunked_output if word.isalnum()]
+    filtered_output = [word for word in chunked_output if any(c.isalnum() for c in word)]
 
     # Perform POS Tagging
     pos_tags = pos_tag(filtered_output)
