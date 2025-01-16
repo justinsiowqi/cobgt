@@ -35,7 +35,7 @@ def remove_stopwords(qn):
 
     qn_list_fil = []
     for word in qn_list:
-        if word not in stop_list:
+        if word.lower() not in stop_list:
             qn_list_fil.append(word)
 
     qn_fil = " ".join(qn_list_fil)
