@@ -2,7 +2,7 @@ from utils import read_question_cypher, write_cypher
 from build_v1_nodes import remove_stopwords, chunk_and_tag    
 from build_v2_nodes import run_cypher_lint, extract_parse_tree, build_hierarchy, split_parsed_trees, split_hierarchical_trees, find_label_type, extract_label_details, substitute_property_details, extract_match, extract_node_relationship
 from connect_v1_v2_nodes import construct_graph, custom_plot
-from connect_v1_v1_nodes import calculate_similarity, extract_similar_words
+from connect_v1_v1_nodes import calculate_similarity, extract_similar_words, connect_graphs, complex_plot
 
 # Define File Paths Here
 cyp_file_path = "cypher.cyp"
@@ -116,11 +116,18 @@ def main():
     
     # Encode and Calculate Similarity Scores
     sim_scores = calculate_similarity(word_term1, word_term2)
-    print(f"Sim Scores are as follows: {sim_scores}")
     
     # Extract Similar Word Terms Above 0.65 Threshold
     sim_words = extract_similar_words(sim_scores)
     print(f"Text Similarity Score > 0.65: {sim_words}")
+    
+    # Connect the Two Sub-Graphs
+    connect_graphs(G1, sim_words)
+    
+    # Plot Both Connected Sub-Graphs as a Complex Plot
+    complex_plot(G1, G2, word_term1_rev, rel_prop1_rev, word_term2_rev, rel_prop2_rev, "graph1_graph2.png")
+    
+    print("Graph 1 connected with Graph 2 saved successfully.")
     
 if __name__ == "__main__":
     main()

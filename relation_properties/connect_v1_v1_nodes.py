@@ -1,6 +1,14 @@
+import os
+import networkx as nx
+import matplotlib.pyplot as plt
+
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 
+# Define Path
+SAVE_DIR = "visuals"
+
+# Function to Calculate Similarity Score Based on Word Embeddings
 def calculate_similarity(word_term1_notag, word_term2_notag):
     
     # Download the MiniLM Model (Highest Accuracy)
@@ -24,6 +32,7 @@ def calculate_similarity(word_term1_notag, word_term2_notag):
         
     return sim_scores
 
+# Function to Extract Similar Words Based on Similarity Score Threshold
 def extract_similar_words(sim_scores, threshold=0.65):
 
     # Create a Dataframe
@@ -36,3 +45,37 @@ def extract_similar_words(sim_scores, threshold=0.65):
     sim_words = filtered_df.to_dict("records")
     
     return sim_words
+
+# Function to Connect Two NetworkX Graphs
+def connect_graphs(G1, sim_words):
+    for word_pair in sim_words:
+        G1.add_edge(word_pair["Question 1"], word_pair["Question 2"])
+    
+# Complex Plotting Function to Combine Two NetworkX Graphs
+def complex_plot(G1, G2, word_term1_rev, rel_prop1_rev, word_term2_rev, rel_prop2_rev, filename):
+    
+    # Define positions for both graphs
+    pos1 = {node: (0, idx) for idx, node in enumerate(word_term1_rev)}  
+    pos2 = {node: (1, idx) for idx, node in enumerate(word_term2_rev)}  
+
+    # Now, place the rel_prop nodes outward
+    pos1.update({node: (1, idx + len(word_term1_rev)) for idx, node in enumerate(rel_prop1_rev)})  
+    pos2.update({node: (2, idx + len(word_term2_rev)) for idx, node in enumerate(rel_prop2_rev)})
+
+    # Combine Graph Positions
+    pos = {**pos1, **pos2}
+
+    plt.figure(figsize=(12, 8))
+
+    # Draw Both Graphs
+    nx.draw(G1, pos=pos, with_labels=True, node_size=3000, node_color='lightblue', font_size=10, font_color='black', font_weight='bold', arrows=True)
+    nx.draw(G2, pos=pos, with_labels=True, node_size=3000, node_color='lightgreen', font_size=10, font_color='black', font_weight='bold', arrows=True)
+
+    # Customize Plot and Show
+    plt.axis('off') 
+    
+    # Create the Directory
+    filepath = os.path.join(SAVE_DIR, filename)
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    
+    plt.savefig(filepath)
