@@ -8,15 +8,21 @@ Please note that this paper was not authored by me, and the original authors did
 Parts of this project leverages the work by :
 - [Synthetic dataset created with Gemini 1.5 Pro](https://github.com/neo4j-labs/text2cypher/tree/main/datasets/synthetic_gemini_demodbs) by Tomaz Bratanic
 - [Libcypher Parser](https://github.com/cleishm/libcypher-parser) by Chris Leishman, Louis-Pierre Beaumont, Jeff Lovitz and Dvir Dukhan
+- [GraphSAGE](https://github.com/williamleif/GraphSAGE?tab=readme-ov-file) by William L. Hamilton and Rex Ying
 
 For more details, you can visit the project page and the FAQ.
 
+## Requirements
+You can install all the packages using the following command
+```bash
+pip install -r requirements.txt
+```
+
 ## Prerequisites
-To run this project, you'll need to install [libcypher-parser](https://github.com/cleishm/libcypher-parser). For more information about how to install and use the package, you can refer to my [cypher parser](https://github.com/justinsiowqi/cypher-parser) repository.
+To run this project, you'll need to install Libcypher Parser. For more information about how to install and use the package, you can refer to my [cypher parser](https://github.com/justinsiowqi/cypher-parser) repository.
 
 You will also need to install the spaCy English Core Model.
 ```bash
-pip install spacy
 python -m spacy download en_core_web_lg
 ```
 
