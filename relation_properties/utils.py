@@ -1,3 +1,33 @@
+import os
+
+def read_neo4j_credentials(file_path):
+    """
+    Read a Neo4j credentials file and extract its contents.
+    
+    Args:
+        file_path: The file path for the Neo4j credentials txt file.
+        
+    Returns:
+        credentials: A dictionary containing the Neo4j URI, username, instance ID and instance name.
+    """
+    credentials = {}
+    with open(file_path, 'r') as f:
+        for line in f:
+            # Skip comment lines
+            if line.startswith("#") or not line.strip():
+                continue
+            key, value = line.strip().split('=', 1)
+            credentials[key] = value
+    return credentials
+
+def create_folder():
+    """
+    Create a folder if it doesn't exist.
+    """
+    # Create the Directory
+    filepath = os.path.join(visuals_dir, filename)
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+
 def read_question_cypher(file_path):
     """
     Read question_cypher.txt file.
