@@ -1,0 +1,7 @@
+question,cypher
+Can you provide a list of actors who appeared in movies directed by Frank Darabont?,"MATCH (a:Actor)-[:ACTED_IN]->(:Movie), (:Movie)<-[:DIRECTED]-(d:Director) WHERE d.name = ""Frank Darabont"" RETURN DISTINCT a.name"
+Can you provide a list of movies that have actors who have also worked in films directed by Mike Nichols?,"MATCH (:Movie)<-[:ACTED_IN]-(:Actor)-[:ACTED_IN]->(:Movie)
+MATCH (:Movie)<-[:DIRECTED]-(:Director)
+WHERE Director.name = ""Mike Nichols""
+RETURN DISTINCT Movie.title, Director.name"
+Provide a list of movies directed by Scott Hicks released prior to 2000.,"MATCH (m:Movie)<-[:DIRECTED_BY]-(d:Director) WHERE d.name = ""Scott Hicks"" and m.released < 2000 RETURN m.released, m.title"
