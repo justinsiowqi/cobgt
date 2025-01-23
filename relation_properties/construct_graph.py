@@ -30,59 +30,42 @@ def build_v2_nodes(cypher):
           
     # Run Cypher Linter
     output = run_cypher_lint(cyp_file_path)
-    print(output)
     
-#     # Extract and parse the parse tree
-#     parse_tree = extract_parse_tree(output)
-#     hierarchical_tree = build_hierarchy(parse_tree)
+    # Extract and parse the parse tree
+    parse_tree = extract_parse_tree(output)
+    hierarchical_tree = build_hierarchy(parse_tree)[0]
     
-#     # Split into Two Parsed Trees
-#     parse_tree1, parse_tree2 = split_parsed_trees(parse_tree)
-    
-#     # Split into Two Hierarchical Trees
-#     hierarchical_tree1, hierarchical_tree2 = split_hierarchical_trees(hierarchical_tree)
-#     # print(hierarchical_tree1)
-    
-#     # Extract Properties
-#     tree1_prop = find_label_type(hierarchical_tree1, "property")
-#     tree2_prop = find_label_type(hierarchical_tree2, "property")
+    # Extract Properties
+    tree_prop = find_label_type(hierarchical_tree, "property")
 
-#     # Extract Identifiers
-#     tree1_identifier = find_label_type(hierarchical_tree1, "identifier")
-#     tree2_identifier = find_label_type(hierarchical_tree2, "identifier")
+    # Extract Identifiers
+    tree_identifier = find_label_type(hierarchical_tree, "identifier")
 
-#     # Extract Property Names
-#     tree1_prop_name = find_label_type(hierarchical_tree1, "prop name")
-#     tree2_prop_name = find_label_type(hierarchical_tree2, "prop name")
+    # Extract Property Names
+    tree_prop_name = find_label_type(hierarchical_tree, "prop name")
     
-#     # Extract Property Details
-#     tree1_prop_details = extract_label_details(tree1_prop)
-#     tree2_prop_details = extract_label_details(tree2_prop)
+    # Extract Property Details
+    tree_prop_details = extract_label_details(tree_prop)
 
-#     # Convert the Identifiers List and Property Names List into a Dictionary
-#     tree1_identifier_dict = {item['id']: item['details'].replace("`", "") for item in tree1_identifier}
-#     tree1_prop_name_dict = {item['id']: item['details'].replace("`", "") for item in tree1_prop_name}
-#     tree2_identifier_dict = {item['id']: item['details'].replace("`", "") for item in tree2_identifier}
-#     tree2_prop_name_dict = {item['id']: item['details'].replace("`", "") for item in tree2_prop_name}
+    # Convert the Identifiers List and Property Names List into a Dictionary
+    tree_identifier_dict = {item['id']: item['details'].replace("`", "") for item in tree_identifier}
+    tree_prop_name_dict = {item['id']: item['details'].replace("`", "") for item in tree_prop_name}
+    tree_identifier_dict = {item['id']: item['details'].replace("`", "") for item in tree_identifier}
+    tree_prop_name_dict = {item['id']: item['details'].replace("`", "") for item in tree_prop_name}
     
-#     # Extract the Properties from Both Trees
-#     tree1_prop_list = substitute_property_details(tree1_prop_details, tree1_identifier_dict, tree1_prop_name_dict)
-#     tree2_prop_list = substitute_property_details(tree2_prop_details, tree2_identifier_dict, tree2_prop_name_dict)
+    # Extract the Properties from Both Trees
+    tree_prop_list = substitute_property_details(tree_prop_details, tree_identifier_dict, tree_prop_name_dict)
     
-#     # Extract the MATCH id for Both Trees
-#     tree1_match_id = extract_match(parse_tree1)
-#     tree2_match_id = extract_match(parse_tree2)
+    # Extract the MATCH id for Both Trees
+    tree_match_id = extract_match(parse_tree)
     
-#     # Extact the Relationships from Both Trees
-#     tree1_rel_list = extract_node_relationship(parse_tree1, tree1_match_id)
-#     tree2_rel_list = extract_node_relationship(parse_tree2, tree2_match_id)
+    # Extact the Relationships from Both Trees
+    tree_rel_list = extract_node_relationship(parse_tree, tree_match_id)
 
-#     # Combine the Relationship and Properties into a Single List
-#     tree1_rel_prop = tree1_rel_list + tree1_prop_list
-#     tree2_rel_prop = tree2_rel_list + tree2_prop_list
+    # Combine the Relationship and Properties into a Single List
+    tree_rel_prop = tree_rel_list + tree_prop_list
 
-#     print(f"Tree 1 Relationship and Properties: {tree1_rel_prop}")
-#     print(f"Tree 2 Relationship and Properties: {tree2_rel_prop}")
+    print(f"Relationship and Properties: {tree_rel_prop}")
 
 for idx, row in df.iterrows():
     
