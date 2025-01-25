@@ -1,14 +1,15 @@
 from transformers import BertTokenizer, BertForTokenClassification, Trainer, TrainingArguments
 import torch
 from torch.utils.data import Dataset
-import pandas as pd
 
 # Define the BIO Map
 label_map = {'O': 0, 'B': 1, 'I': 2}
 inv_label_map = {0: 'O', 1: 'B', 2: 'I'}
 
-# Define the custom Dataset class
 class CypherDataset(Dataset):
+    """
+    Class function to create a custom HuggingFace dataset to include BIO tags.
+    """
     def __init__(self, encodings, labels, tokenizer, max_length=128):
         self.encodings = encodings
         self.labels = labels
@@ -22,22 +23,32 @@ class CypherDataset(Dataset):
         encoding = {key: val[idx] for key, val in self.encodings.items()}  
         label = self.labels[idx]
         
-        # Map BIO labels ('O', 'B', 'I') to integer values (0, 1, 2)
+        # Map BIO Labels to Integer Values
         label_ids = [label_map[tag] for tag in label.split()] 
         
-        # Ensure labels match the length of the tokenized input
+        # Ensure Labels Match Tokenized Input
         label_ids = label_ids + [0] * (self.max_length - len(label_ids))  
         
-        # Add the labels to the item
+        # Add the Labels
         encoding['labels'] = torch.tensor(label_ids)
         
-        # Create an attention mask (1 for real tokens and 0 for padding tokens)
+        # Create an Attention Mask 
         encoding['attention_mask'] = torch.where(encoding['input_ids'] != self.tokenizer.pad_token_id, torch.tensor(1), torch.tensor(0))
         
         return encoding
 
 def finetune_model(model_name, questions, bio_tags):
+    """
+    Fine-tune the BERT model. 
     
+    Args:
+        model_name: The name of the BERT tokenizer and model.
+        question: The list of questions to tokenize.
+        bio_tags: The list of annotated BIO tags.
+        
+    Returns:
+        final: The annotated sentence.
+    """
     # Load Pretrained BERT Tokenizer and Model
     tokenizer = BertTokenizer.from_pretrained(model_name)
     model = BertForTokenClassification.from_pretrained(model_name, num_labels=3)  
@@ -71,10 +82,20 @@ def finetune_model(model_name, questions, bio_tags):
     
     return model, tokenizer
 
-# Function to Classify BIO Tags
 def predict_bio_tags(question, model, tokenizer):
+    """
+    Predict the BIO tags.
+    
+    Args:
+        question: The question to predict BIO tags from.
+        model: The instantiated BERT model.
+        tokenizer: The instantiated BERT tokenizer.
         
+    Returns:
+        final: The annotated sentence.
+    """
     encoding = tokenizer(question, return_tensors='pt', padding=True, truncation=True, max_length=128)
+    
     with torch.no_grad():
         outputs = model(**encoding)
         logits = outputs.logits

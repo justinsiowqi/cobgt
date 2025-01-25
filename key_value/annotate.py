@@ -3,9 +3,16 @@ import spacy
 # Load the Spacy Large Model
 nlp = spacy.load('en_core_web_lg')
 
-# Function to Annotate the Questions with BIO Tags
 def annotate_bio_tags(text):
-
+    """
+    Annotate each word in the sentence with BIO tags.
+    
+    Args:
+        text: The sentence you want to annotate.
+        
+    Returns:
+        final: The annotated sentence.
+    """
     doc = nlp(text)
         
     final = []

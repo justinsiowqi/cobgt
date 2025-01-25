@@ -1,9 +1,5 @@
-import numpy as np
 import pandas as pd
-
-from datasets import Dataset, Features, Value
-from transformers import BertTokenizer, BertForTokenClassification, TrainingArguments, Trainer
-import evaluate
+from transformers import BertTokenizer, BertForTokenClassification
 
 from annotate import annotate_bio_tags
 from model import finetune_model, predict_bio_tags
