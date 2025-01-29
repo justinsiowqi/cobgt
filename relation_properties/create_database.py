@@ -3,7 +3,7 @@ from utils import read_neo4j_credentials
 
 # Add File Paths Here
 cypher_script_path = "movies.cypher"
-credentials_file_path = "neo4j-credentials-example.txt"
+credentials_file_path = "Neo4j-85978cdc-Created-2025-01-28.txt"
 
 # Read the Neo4j Credentials
 creds = read_neo4j_credentials(credentials_file_path)
