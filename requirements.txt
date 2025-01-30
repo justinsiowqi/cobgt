@@ -11,6 +11,7 @@ matplotlib==3.9.2
 networkx==3.4.2
 nltk==3.9.1
 numpy==1.26.4
+sentencepiece==0.2.0
 spacy==3.8.3
 torch==2.5.1
 transformers==4.46.2
