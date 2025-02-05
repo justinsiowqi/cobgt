@@ -4,7 +4,15 @@ MODEL_NAME = "google-t5/t5-small"
 
 # Function to Predict the Cypher Query
 def predict_cypher(input_sequence):
+    """
+    Generate a cypher query based on the input sequence.
     
+    Args:
+        input_sequence: Sequence that includes the schema relationships, extracted key information and question.
+        
+    Returns:
+        cypher_query: The generated cypher query.
+    """
     tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
     model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
 
