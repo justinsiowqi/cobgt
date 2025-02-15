@@ -27,6 +27,11 @@ python -m spacy download en_core_web_lg
 python -m spacy download en_core_web_trf
 ```
 
+## Proposed Model
+<p align="center">
+<img src="assets/model_diagram.png" width="700"> <br>
+</p>
+
 ## Running the Key Value Extraction Module
 To run this module, you'll need to generate a dataset containing question-cypher pairs in order to fine-tune the BERT model. Alternatively, you can attach your own dataset.
 
