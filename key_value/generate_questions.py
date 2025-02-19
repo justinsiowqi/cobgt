@@ -109,4 +109,4 @@ for database in DEMO_DATABASES:
 
 # Save the Dataframe
 df = pd.DataFrame.from_records(all_questions)
-df.drop_duplicates(subset='question').to_csv('gemini_questions.csv', index=False)
+df.drop_duplicates(subset='question').to_csv("../data/generated/gemini_questions.csv", index=False)

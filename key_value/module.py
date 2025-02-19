@@ -5,8 +5,8 @@ from annotate import annotate_bio_tags
 from model import finetune_model, predict_bio_tags
 
 # Adjust Accordingly
-INPUT_CSV = "gemini_question_cypher_filtered.csv"
-OUTPUT_CSV = "gemini_question_cypher_bio.csv"
+INPUT_CSV = "../data/processed/gemini_question_cypher_filtered.csv"
+OUTPUT_CSV = "../data/processed/gemini_question_cypher_bio.csv"
 
 TRAIN_TEST_SIZE = 0.1
 MODEL_NAME = "google-bert/bert-base-cased"

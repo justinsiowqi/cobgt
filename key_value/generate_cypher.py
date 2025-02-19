@@ -76,10 +76,10 @@ cypher_response = (
 )
 
 # Read the Generated Questions CSV File
-questions = pd.read_csv("gemini_questions.csv")
+questions = pd.read_csv("../data/generated/gemini_questions.csv")
 
 # Read the Schema CSV File
-schemas = pd.read_csv('text2cypher_schemas.csv')
+schemas = pd.read_csv("../data/schema/text2cypher_schemas.csv")
 schemas.head()
 schema_dict = {}
 for i, row in schemas.iterrows():
@@ -215,7 +215,7 @@ for i, row in results.iterrows():
 graph._driver.close()
 
 # Save the CSV File
-results.to_csv('gemini_question_cypher.csv', index=False)
+results.to_csv("../data/generated/gemini_question_cypher.csv", index=False)
 
 results["syntax_error"] = syntax_error
 results["timeout"] = timeouts
@@ -237,4 +237,4 @@ for idx, row in results.iterrows():
 results = results.drop(ids_to_drop).reset_index(drop=True)
 
 # Save the Filtered CSV File
-results.to_csv('gemini_question_cypher_filtered.csv', index=False)
+results.to_csv("../data/processed/gemini_question_cypher_filtered.csv", index=False)
