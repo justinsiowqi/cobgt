@@ -10,8 +10,7 @@ from connect_nodes import connect_v1_v1_nodes, connect_v1_v2_nodes
 df = pd.read_csv("question_schema_relationship.csv")
 
 # Add File Paths Here
-cypher_script_path = "movies.cypher"
-credentials_file_path = "neo4j-credentials-example.txt"
+credentials_file_path = "../config/neo4j-credentials-example.txt"
 
 # Read the Neo4j Credentials
 creds = read_neo4j_credentials(credentials_file_path)
