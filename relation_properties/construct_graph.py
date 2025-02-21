@@ -5,6 +5,7 @@ from utils import read_neo4j_credentials
 
 from build_nodes import build_v1_nodes, build_v2_nodes
 from connect_nodes import connect_v1_v1_nodes, connect_v1_v2_nodes
+from graph_operations import create_nodes, create_relationships
 
 # Read the Question Schema Relationship CSV File
 df = pd.read_csv("question_schema_relationship.csv")
@@ -39,7 +40,9 @@ def fetch_all_word_terms():
 
 # Function to Fetch the Schema
 def fetch_schema():
-    return None
+    schema = graph.schema
+    
+    return schema
 
 # Loop Through Dataframe and Construct Graph
 for idx, row in df.iterrows():
@@ -49,6 +52,13 @@ for idx, row in df.iterrows():
     
     # Relation and Properties Node (V2) Building
     relation_properties = build_v2_nodes(row["cypher"])
-        
-    # Plot in Neo4j
-    # connect_v1_v1_nodes(word_terms, tree_rel_prop)
+    
+    # Connect V1 and V1 Nodes
+    G = connect_v1_v1_nodes(word_terms, relation_properties)
+    
+    # Construct V1 and V2 Nodes in Neo4j
+    create_nodes(graph, word_terms, "V1")
+    create_nodes(graph, relation_properties, "V2")
+    
+    # Construct V1 and V1 Relationships in Neo4j
+    create_relationships(graph, word_terms, relation_properties, "HAS_V2")
