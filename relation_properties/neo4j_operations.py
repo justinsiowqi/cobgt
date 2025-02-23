@@ -1,4 +1,4 @@
-# Function to Create V1 and V2 Nodes in Neo4j
+# Function to Push V1 and V2 Nodes to Neo4j
 def push_nodes_to_neo4j(graph, node_list, node_type):
     
     for item in node_list:
@@ -16,8 +16,8 @@ def push_nodes_to_neo4j(graph, node_list, node_type):
     
     print(f"{node_type} nodes created successfully.")
             
-# Function to Create Relationships in Neo4j
-def create_relationships(graph, node_list1, node_list2, rel_type):
+# Function to Push V1 and V2 Relationships to Neo4j
+def push_v1_v2_relationships_to_neo4j(graph, node_list1, node_list2, rel_type):
     for node1 in node_list1:
         for node2 in node_list2:
             try:
