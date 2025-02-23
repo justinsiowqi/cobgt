@@ -4,14 +4,14 @@ from langchain_community.graphs import Neo4jGraph
 from utils import read_neo4j_credentials
 
 from build_nodes import build_v1_nodes, build_v2_nodes
-from connect_nodes import connect_v1_v1_nodes, connect_v1_v2_nodes
-from graph_operations import create_nodes, create_relationships
+from connect_nodes import create_v1_v2_connection_in_networkx
+from neo4j_operations import push_nodes_to_neo4j, push_v1_v2_relationships_to_neo4j
 
 # Read the Question Schema Relationship CSV File
 df = pd.read_csv("question_schema_relationship.csv")
 
 # Add File Paths Here
-credentials_file_path = "../config/neo4j-credentials-example.txt"
+credentials_file_path = "../config/Neo4j-719efdf2-Created-2025-02-21.txt"
 
 # Read the Neo4j Credentials
 creds = read_neo4j_credentials(credentials_file_path)
@@ -54,11 +54,14 @@ for idx, row in df.iterrows():
     relation_properties = build_v2_nodes(row["cypher"])
     
     # Connect V1 and V1 Nodes
-    G = connect_v1_v1_nodes(word_terms, relation_properties)
+    G = create_v1_v2_connection_in_networkx(word_terms, relation_properties)
     
     # Construct V1 and V2 Nodes in Neo4j
-    create_nodes(graph, word_terms, "V1")
-    create_nodes(graph, relation_properties, "V2")
+    push_nodes_to_neo4j(graph, word_terms, "V1")
+    push_nodes_to_neo4j(graph, relation_properties, "V2")
+    
+    # Construct V1 and V2 Relationships in Neo4j
+    push_v1_v2_relationships_to_neo4j(graph, word_terms, relation_properties, "HAS_V2")
     
     # Construct V1 and V1 Relationships in Neo4j
-    create_relationships(graph, word_terms, relation_properties, "HAS_V2")
+    create_v1_v1_relationships(graph, word_terms1, word_term2, "HAS_V1")

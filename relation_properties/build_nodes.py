@@ -12,7 +12,7 @@ from utils import write_cypher, append_cypher
 cyp_file_path = "cypher.cyp"
 all_cyp_file_path = "all_cypher.cyp"
 
-# ---------- Step 1: Remove Stopwords ----------
+# ---------- Build V1 Nodes: Remove Stopwords ----------
 
 # Download the necessary NLTK data files
 nltk.download('stopwords')
@@ -49,7 +49,7 @@ def remove_stopwords(qn):
     return qn_fil
 
 
-# ---------- Step 2: POS Tagging and Chunking ----------
+# ---------- Build V1 Nodes: POS Tagging and Chunking ----------
 
 # Function to Chunk and POS Tag Sentences
 def chunk_and_tag(qn_fil, return_tag=True):
@@ -115,7 +115,7 @@ def build_v1_nodes(question):
     return word_terms
 
 
-# ---------- Step 1: Parse Cypher ----------
+# ---------- Build V2 Nodes: Parse Cypher ----------
 
 # Function to Parse Cypher Query
 def run_cypher_lint(cyp_file_path):
@@ -134,7 +134,7 @@ def run_cypher_lint(cyp_file_path):
         return None
     
 
-# ---------- Step 2: Extract Nodes ----------
+# ---------- Build V2 Nodes: Extract Nodes ----------
 
 # Define Regex Pattern
 parse_tree = []
@@ -240,7 +240,7 @@ def split_hierarchical_trees(hierarchical_tree):
     return hierarchical_tree1, hierarchical_tree2
 
 
-# ---------- Step 3: Extract Properties ----------
+# ---------- Build V2 Nodes: Extract Properties ----------
 
 # Function that Searches Hierarchical Tree for Label Types
 def find_label_type(data, label_type):
@@ -280,7 +280,7 @@ def substitute_property_details(tree_prop_details, tree_identifier_dict, tree_pr
     return prop_list
 
 
-# ---------- Step 4: Extract Relationships ----------
+# ---------- Build V2 Nodes: Extract Relationships ----------
 
 # Function to Extract the MATCH Keyword and Item ID
 def extract_match(tree):
