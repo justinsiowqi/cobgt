@@ -5,7 +5,7 @@ from utils import read_neo4j_credentials
 
 from build_nodes import build_v1_nodes, build_v2_nodes
 from networkx_operations import create_v1_v2_connection_in_networkx
-from neo4j_operations import push_v1_nodes_to_neo4j, push_v2_nodes_to_neo4j, push_v1_v2_relationships_to_neo4j
+from neo4j_operations import push_v1_nodes_to_neo4j, push_v2_nodes_to_neo4j, push_v1_v2_relationships_to_neo4j, push_v1_v1_relationships_to_neo4j
 
 # Read the Question Schema Relationship CSV File
 df = pd.read_csv("question_schema_relationship.csv")
@@ -64,4 +64,4 @@ for idx, row in df.iterrows():
     push_v1_v2_relationships_to_neo4j(graph, word_terms, relation_properties)
     
     # # Construct V1 and V1 Relationships in Neo4j
-    # create_v1_v1_relationships(graph, word_terms1, word_term2, "HAS_V1")
+    push_v1_v1_relationships_to_neo4j(graph, word_terms, row["question_id"])
