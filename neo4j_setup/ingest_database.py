@@ -58,3 +58,5 @@ def create_database(cypher_script_path):
         except Exception as e:
             print(f"Error executing statement: {cypher}")
             print(f"Error message: {str(e)}")
+
+    print("Neo4j graph database created successfully.")
