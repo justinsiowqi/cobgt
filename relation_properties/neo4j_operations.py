@@ -35,7 +35,7 @@ def push_v1_v2_relationships_to_neo4j(graph, v1_nodes, v2_nodes):
             try:
                 query = """
                     MATCH (v1 {name: $source}), (v2 {name: $target})
-                    MERGE (v1)-[r: HAS_V2]->(v2)
+                    MERGE (v1)-[r: V1_V2_CONNECTION]-(v2)
                 """
                 
                 params = {"source": node1, "target": node2}
@@ -68,17 +68,15 @@ def push_v1_v1_relationships_to_neo4j(graph, node_list, question_id):
     sim_words = extract_similar_words(sim_scores)
     print(f"Text Similarity Score > 0.65: {sim_words}")
     
-    # Remove Duplicates
-    for sim_word in sim_words:
-        if sim_word["Question 1"] == sim_word["Question 2"]:
-            sim_words.remove(sim_word)
+    # Prevents Node from Self-Connecting
+    sim_words = [sw for sw in sim_words if sw["Question 1"] != sw["Question 2"]]
     
     # Connect All the V1 Nodes Above the 0.65 Threshold
     for sim_word in sim_words:
         try:
             query = """
                 MATCH (v1q1 {name: $source}), (v1q2 {name: $target})
-                MERGE (v1q1)-[r:HAS_V1]->(v1q2)
+                MERGE (v1q1)-[r:V1_V1_CONNECTION]-(v1q2)
             """
             
             params = {"source": sim_word["Question 1"], "target": sim_word["Question 2"]}
