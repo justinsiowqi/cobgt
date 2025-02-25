@@ -1,8 +1,34 @@
+import os
+import glob
 from langchain_community.graphs import Neo4jGraph
 
 # Add File Paths Here
 cypher_script_path = "movies.cypher"
-credentials_file_path = "../config/neo4j-credentials-example.txt"
+
+# Function to get the Neo4j Credentials File Path 
+def get_neo4j_credentials_path(config_folder="config"):
+    """
+    Automatically find the neo4j credentials file in the given config folder.
+    
+    Returns:
+        The path to the credentials file.
+    """
+    # Get the Path to the Config Folder
+    current_dir = os.getcwd()
+    parent_dir = os.path.dirname(current_dir)
+    config_folder = os.path.join(parent_dir, "config")
+    
+    pattern = os.path.join(config_folder, "Neo4j-*.txt")
+    files = glob.glob(pattern)
+    
+    if not files:
+        raise FileNotFoundError(
+            f"No neo4j credentials file found in '{config_folder}' matching pattern 'Neo4j-*.txt'."
+        )
+    
+    # Choose the Most Recent File
+    files.sort(key=os.path.getmtime, reverse=True)
+    return files[0]
 
 # Function to Read and Extract From Neo4j Credentials File
 def read_neo4j_credentials(file_path):
@@ -26,7 +52,8 @@ def read_neo4j_credentials(file_path):
     return credentials
 
 # Read the Neo4j Credentials
-creds = read_neo4j_credentials(credentials_file_path)
+neo4j_credentials_path = get_neo4j_credentials_path()
+creds = read_neo4j_credentials(neo4j_credentials_path)
 
 # Extracting credentials
 NEO4J_URI = creds.get("NEO4J_URI")
@@ -60,3 +87,5 @@ def create_database(cypher_script_path):
             print(f"Error message: {str(e)}")
 
     print("Neo4j graph database created successfully.")
+
+create_database("movies.cypher")
