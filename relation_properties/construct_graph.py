@@ -1,7 +1,8 @@
+import os
+import glob
 import pandas as pd
 
 from langchain_community.graphs import Neo4jGraph
-from utils import read_neo4j_credentials
 
 from build_nodes import build_v1_nodes, build_v2_nodes
 from networkx_operations import create_v1_v2_connection_in_networkx
@@ -10,11 +11,55 @@ from neo4j_operations import push_v1_nodes_to_neo4j, push_v2_nodes_to_neo4j, pus
 # Read the Question Schema Relationship CSV File
 df = pd.read_csv("question_schema_relationship.csv")
 
-# Add File Paths Here
-credentials_file_path = "../config/Neo4j-719efdf2-Created-2025-02-21.txt"
+# Function to get the Neo4j Credentials File Path 
+def get_neo4j_credentials_path(config_folder="config"):
+    """
+    Automatically find the neo4j credentials file in the given config folder.
+    
+    Returns:
+        The path to the credentials file.
+    """
+    # Get the Path to the Config Folder
+    current_dir = os.getcwd()
+    parent_dir = os.path.dirname(current_dir)
+    config_folder = os.path.join(parent_dir, "config")
+    
+    pattern = os.path.join(config_folder, "Neo4j-*.txt")
+    files = glob.glob(pattern)
+    
+    if not files:
+        raise FileNotFoundError(
+            f"No neo4j credentials file found in '{config_folder}' matching pattern 'Neo4j-*.txt'."
+        )
+    
+    # Choose the Most Recent File
+    files.sort(key=os.path.getmtime, reverse=True)
+    return files[0]
+
+# Function to Read and Extract From Neo4j Credentials File
+def read_neo4j_credentials(file_path):
+    """
+    Read a Neo4j credentials file and extract its contents.
+    
+    Args:
+        file_path: The file path for the Neo4j credentials txt file.
+        
+    Returns:
+        credentials: A dictionary containing the Neo4j URI, username, instance ID and instance name.
+    """
+    credentials = {}
+    with open(file_path, 'r') as f:
+        for line in f:
+            # Skip comment lines
+            if line.startswith("#") or not line.strip():
+                continue
+            key, value = line.strip().split('=', 1)
+            credentials[key] = value
+    return credentials
 
 # Read the Neo4j Credentials
-creds = read_neo4j_credentials(credentials_file_path)
+neo4j_credentials_path = get_neo4j_credentials_path()
+creds = read_neo4j_credentials(neo4j_credentials_path)
 
 # Extracting credentials
 NEO4J_URI = creds.get("NEO4J_URI")
