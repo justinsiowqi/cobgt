@@ -1,5 +1,33 @@
 from connect_nodes import calculate_similarity, extract_similar_words
 
+# Function to Fetch All V1 and V2 Nodes
+def fetch_nodes(graph):
+    try:
+        query = """
+            MATCH (n)
+            WHERE n:V1 OR n:V2
+            RETURN elementId(n) AS id, n.question_id AS question_id, n.name AS name, labels(n) AS labels
+        """
+        graph_nodes = graph.query(query)
+        return graph_nodes
+    
+    except Exception as e:
+        print(f"Error fetching V1 and V2 nodes: {e}")
+        
+# Function to Fetch All Relationships
+def fetch_relationships(graph):
+    try:
+        query = """
+            MATCH (a)-[r]->(b)
+            WHERE type(r) IN ['V1_V1_CONNECTION', 'V1_V2_CONNECTION']
+            RETURN elementId(a) AS source, elementId(b) AS target, type(r) AS rel_type
+        """
+        graph_relationships = graph.query(query)
+        return graph_relationships
+    
+    except Exception as e:
+        print(f"Error fetching relationships: {e}")
+    
 # Function to Push V1 Nodes to Neo4j
 def push_v1_nodes_to_neo4j(graph, node_list, question_id):
     
