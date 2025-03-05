@@ -6,6 +6,11 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch_geometric.nn.models import GraphSAGE
 from torch_geometric.data import Data
+from sentence_transformers import SentenceTransformer
+
+from langchain_community.graphs import Neo4jGraph
+
+from neo4j_operations import fetch_nodes, fetch_relationships
 
 # Function to get the Neo4j Credentials File Path 
 def get_neo4j_credentials_path(config_folder="config"):
@@ -62,20 +67,65 @@ NEO4J_URI = creds.get("NEO4J_URI")
 NEO4J_USERNAME = creds.get("NEO4J_USERNAME")
 NEO4J_PASSWORD = creds.get("NEO4J_PASSWORD")
 
-num_nodes = 100
-feature_dim = 128
-
-# Model instantiation:
-hidden_channels = 64
-num_layers = 2
-out_channels = 32  # final embedding dimension
-
-model = GraphSAGE(
-    in_channels=feature_dim,
-    hidden_channels=hidden_channels,
-    num_layers=num_layers,
-    out_channels=out_channels,  
-    dropout=0.0,
-    act='relu',
-    jk=None  
+# Connect to Neo4j Graph Database
+graph = Neo4jGraph(
+    url=NEO4J_URI,
+    username=NEO4J_USERNAME,
+    password=NEO4J_PASSWORD,
 )
+
+# Fetch the Nodes and Relationships from Neo4j
+graph_nodes = fetch_nodes(graph)
+graph_relationships = fetch_relationships(graph)
+
+# Encode the Node Name into Numeric Features
+embedding_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+
+# Create a mapping
+node_features = {}
+for node in graph_nodes:
+    text = node['name']  
+    embedding = embedding_model.encode(text)
+    node_features[node['id']] = embedding
+
+# Build the Node IDs
+node_ids = sorted(node_features.keys())
+
+# Build the Feature Matrix
+x = torch.tensor([node_features[nid] for nid in node_ids], dtype=torch.float)
+
+id_to_idx = {nid: i for i, nid in enumerate(node_ids)}
+
+# Create a List of Relationships
+relationship_idx_list = []
+for relationship in graph_relationships:
+    src, tgt = relationship['source'], relationship['target']
+    if src in id_to_idx and tgt in id_to_idx:
+        relationship_idx_list.append([id_to_idx[src], id_to_idx[tgt]])
+
+# Convert the Edges into Tensor
+relationship_index = torch.tensor(relationship_idx_list, dtype=torch.long).t().contiguous()
+
+# Create the Torch Geometric Data Object.
+data = Data(x=x, edge_index=relationship_index)
+
+# Gather Some Statistics
+print(data)
+print('=============================================================')
+print(f'Number of nodes: {data.num_nodes}')
+print(f'Number of edges: {data.num_edges}')
+print(f'Average node degree: {data.num_edges / data.num_nodes:.2f}')
+print(f'Has isolated nodes: {data.has_isolated_nodes()}')
+print(f'Has self-loops: {data.has_self_loops()}')
+print(f'Is undirected: {data.is_undirected()}')
+
+# Instantiate the Model
+model = GraphSAGE(data.num_node_features, hidden_channels=64, num_layers=3).to(device)
+model
+
+# Perform Forward Pass and Get Embeddings
+model.eval()
+with torch.no_grad():
+    node_embeddings = model(data.x, data.edge_index)
+
+print("Shape of node embeddings:", node_embeddings.shape)
