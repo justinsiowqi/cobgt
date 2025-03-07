@@ -165,7 +165,7 @@ def push_qn_v1_graph_v1_relationships_to_neo4j(graph, graph_node_id, qn_word_id)
             MATCH (v1q1)
             WHERE elementId(v1q1) = $source
             MATCH (v1q2)
-            WHERE elementId(v1q2) = #target
+            WHERE elementId(v1q2) = $target
             MERGE (v1q1)-[:V1_V1_CONNECTION]-(v1q2)
         """
 
@@ -173,13 +173,7 @@ def push_qn_v1_graph_v1_relationships_to_neo4j(graph, graph_node_id, qn_word_id)
         graph.query(query, params)
 
     except Exception as e:
-        print(f"Error creating relationship between v1 node {graph_node_term} and v1 node {qn_word_term}: {e}")
-        
-    
-    
-    
-    
-    
+        print(f"Error creating relationship between v1 node {graph_node_id} and v1 node {qn_word_id}: {e}")
     
 # Function to Push V1 Nodes with Embeddings to Neo4j
 def push_v1_nodes_with_embeddings_to_neo4j(graph, id_to_emb_dict):
