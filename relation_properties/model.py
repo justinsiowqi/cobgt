@@ -10,7 +10,7 @@ from sentence_transformers import SentenceTransformer
 
 from langchain_community.graphs import Neo4jGraph
 
-from neo4j_operations import fetch_nodes, fetch_relationships
+from neo4j_operations import fetch_nodes, fetch_relationships, push_v1_nodes_with_embeddings_to_neo4j, push_v2_nodes_with_embeddings_to_neo4j
 
 # Function to get the Neo4j Credentials File Path 
 def get_neo4j_credentials_path(config_folder="config"):
@@ -78,6 +78,9 @@ graph = Neo4jGraph(
 graph_nodes = fetch_nodes(graph)
 graph_relationships = fetch_relationships(graph)
 
+# Set the Torch Device
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
 # Encode the Node Name into Numeric Features
 embedding_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
@@ -129,3 +132,33 @@ with torch.no_grad():
     node_embeddings = model(data.x, data.edge_index)
 
 print("Shape of node embeddings:", node_embeddings.shape)
+
+# Match the Embeddings to Each Node ID
+id_to_emb = {}
+for id in id_to_idx:
+    for emb in node_embeddings:
+        id_to_emb[id] = emb
+
+# Split the Embeddings Dictionary into V1 and V2 Nodes
+v1_node_ids = []
+v2_node_ids = []
+
+for node in graph_nodes:
+    if node["labels"] == ["V1"]:
+        v1_node_ids.append(node["id"])
+    if node["labels"] == ["V2"]:
+        v2_node_ids.append(node["id"])
+        
+v1_id_to_emb = {}
+v2_id_to_emb = {}
+
+for node_id, node_embeddings in id_to_emb.items():
+    if node_id in v1_node_ids:
+        v1_id_to_emb[node_id] = node_embeddings
+    if node_id in v2_node_ids:
+        v2_id_to_emb[node_id] = node_embeddings
+
+# Create Node Properties for Embeddings
+push_v1_nodes_with_embeddings_to_neo4j(graph, v1_id_to_emb)
+push_v2_nodes_with_embeddings_to_neo4j(graph, v2_id_to_emb)
+

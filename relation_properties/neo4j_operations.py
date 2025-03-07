@@ -13,6 +13,20 @@ def fetch_nodes(graph):
     
     except Exception as e:
         print(f"Error fetching V1 and V2 nodes: {e}")
+
+# Function to Fetch All V1 and V2 Nodes with Embeddings
+def fetch_nodes_with_embeddings(graph):
+    try:
+        query = """
+            MATCH (n)
+            WHERE n:V1 OR n:V2
+            RETURN elementId(n) AS id, n.question_id AS question_id, n.name AS name, n.embeddings AS embeddings, labels(n) AS labels
+        """
+        graph_nodes = graph.query(query)
+        return graph_nodes
+    
+    except Exception as e:
+        print(f"Error fetching V1 and V2 nodes: {e}")        
         
 # Function to Fetch All Relationships
 def fetch_relationships(graph):
@@ -114,3 +128,43 @@ def push_v1_v1_relationships_to_neo4j(graph, node_list, question_id):
             print(f"Error creating relationship between v1 node {sim_word['Question 1']} and v1 node {sim_word['Question 2']}: {e}")
     
     print("V1 and V1 relationships created successfully.")
+    
+# Function to Push V1 Nodes with Embeddings to Neo4j
+def push_v1_nodes_with_embeddings_to_neo4j(graph, id_to_emb_dict):
+    for node_id, node_embeddings in id_to_emb_dict.items():
+        try:
+            embeddings_list = node_embeddings.tolist()
+            
+            query = """
+                MATCH (n:V1) 
+                WHERE elementId(n) = $node_id
+                SET n.embeddings = $embeddings
+                RETURN n
+            """
+            params = {"node_id": str(node_id),  "embeddings": embeddings_list}
+            graph.query(query, params)
+            
+        except Exception as e:
+            print(f"Error updating V1 node {node_id}: {e}")
+    
+    print("V1 nodes with embeddings updated successfully.")
+    
+# Function to Push V2 Nodes with Embeddings to Neo4j
+def push_v2_nodes_with_embeddings_to_neo4j(graph, id_to_emb_dict):
+    for node_id, node_embeddings in id_to_emb_dict.items():
+        try:
+            embeddings_list = node_embeddings.tolist()
+            
+            query = """
+                MATCH (n:V2) 
+                WHERE elementId(n) = $node_id
+                SET n.embeddings = $embeddings
+                RETURN n
+            """
+            params = {"node_id": str(node_id),  "embeddings": embeddings_list}
+            graph.query(query, params)
+            
+        except Exception as e:
+            print(f"Error updating V2 node {node_id}: {e}")
+    
+    print("V2 nodes with embeddings updated successfully.")
