@@ -9,6 +9,19 @@ def calculate_similarity(word_term1_notag, word_term2_notag):
     # Download the MiniLM Model
     model = SentenceTransformer("all-mpnet-base-v2")
     
+    word_term1_embeddings = model.encode(word_term1_notag)
+    word_term2_embeddings = model.encode(word_term2_notag)
+    
+    sim_score = model.similarity(word_term1_embeddings, word_term2_embeddings)
+        
+    return sim_score
+
+# Function to Calculate Similarity Score Based on Word Embeddings
+def calculate_similarity_between_node_lists(word_term1_notag, word_term2_notag):
+    
+    # Download the MiniLM Model
+    model = SentenceTransformer("all-mpnet-base-v2")
+    
     # Encode Each Word in the Word Term No Tag List
     word_term1_embeddings = {}
     for word in word_term1_notag:

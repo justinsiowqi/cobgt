@@ -1,4 +1,10 @@
-from connect_nodes import calculate_similarity, extract_similar_words
+from connect_nodes import calculate_similarity_between_node_lists, extract_similar_words
+
+# Function to Fetch the Schema
+def fetch_schema():
+    schema = graph.schema
+    
+    return schema
 
 # Function to Fetch All V1 and V2 Nodes
 def fetch_nodes(graph):
@@ -55,6 +61,28 @@ def push_v1_nodes_to_neo4j(graph, node_list, question_id):
             print(f"Error creating V1 node {item}: {e}")
     
     print("V1 nodes created successfully.")
+
+# Function to Push Question V1 Nodes to Neo4j
+def push_v1_qn_nodes_to_neo4j(graph, node_list):
+    node_dict = {}
+
+    for item in node_list:
+        try:
+            query = """
+                MERGE (v:V1 {name: $name})
+                RETURN elementId(v) AS id, v.name AS name
+            """
+            params = {"name": item}
+            result = graph.query(query, params)
+
+            if result:
+                node_dict[result[0]["id"]] = result[0]["name"]
+        
+        except Exception as e:
+            print(f"Error creating V1 node {item}: {e}")
+    
+    print("V1 nodes created successfully.")
+    return node_dict
     
 # Function to Push V2 Nodes to Neo4j
 def push_v2_nodes_to_neo4j(graph, node_list, question_id):
@@ -104,7 +132,7 @@ def push_v1_v1_relationships_to_neo4j(graph, node_list, question_id):
         print(f"Error fetching list of existing nodes: {e}")        
     
     # Encode and Calculate Similarity Scores
-    sim_scores = calculate_similarity(node_list, existing_v1_nodes_names)
+    sim_scores = calculate_similarity_between_node_lists(node_list, existing_v1_nodes_names)
     
     # Extract Similar Word Terms Above the 0.65 Threshold
     sim_words = extract_similar_words(sim_scores)
@@ -128,6 +156,30 @@ def push_v1_v1_relationships_to_neo4j(graph, node_list, question_id):
             print(f"Error creating relationship between v1 node {sim_word['Question 1']} and v1 node {sim_word['Question 2']}: {e}")
     
     print("V1 and V1 relationships created successfully.")
+    
+# Function to Push Question V1 Nodes and Graph V1 Nodes Relationships to Neo4j
+def push_qn_v1_graph_v1_relationships_to_neo4j(graph, graph_node_id, qn_word_id):
+    
+    try:
+        query = """
+            MATCH (v1q1)
+            WHERE elementId(v1q1) = $source
+            MATCH (v1q2)
+            WHERE elementId(v1q2) = #target
+            MERGE (v1q1)-[:V1_V1_CONNECTION]-(v1q2)
+        """
+
+        params = {"source": graph_node_id, "target": qn_word_id}
+        graph.query(query, params)
+
+    except Exception as e:
+        print(f"Error creating relationship between v1 node {graph_node_term} and v1 node {qn_word_term}: {e}")
+        
+    
+    
+    
+    
+    
     
 # Function to Push V1 Nodes with Embeddings to Neo4j
 def push_v1_nodes_with_embeddings_to_neo4j(graph, id_to_emb_dict):

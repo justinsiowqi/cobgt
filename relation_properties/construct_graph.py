@@ -73,22 +73,6 @@ graph = Neo4jGraph(
     password=NEO4J_PASSWORD,
 )
 
-# Function to Fetch All Word Terms
-def fetch_all_word_terms():
-    
-    all_word_terms = []
-    for idx, row in df.iterrows():
-        word_terms = build_v1_nodes(row["question"])
-        all_word_terms += word_terms 
-        
-    return all_word_terms
-
-# Function to Fetch the Schema
-def fetch_schema():
-    schema = graph.schema
-    
-    return schema
-
 # Loop Through Dataframe and Construct Graph
 for idx, row in df.iterrows():
     
