@@ -5,7 +5,8 @@ from langchain_community.graphs import Neo4jGraph
 
 from build_nodes import build_v1_nodes, build_v2_nodes
 from connect_nodes import calculate_similarity
-from neo4j_operations import fetch_nodes, push_v1_qn_nodes_to_neo4j, push_qn_v1_graph_v1_relationships_to_neo4j
+from neo4j_operations import fetch_nodes, fetch_relationships, push_v1_qn_nodes_to_neo4j, push_qn_v1_graph_v1_relationships_to_neo4j, push_v1_nodes_with_embeddings_to_neo4j, push_v2_nodes_with_embeddings_to_neo4j
+from model import encode_node_features, create_graph_data_object, learn_node_embeddings, split_node_embeddings
 
 sample_question = "Which films was Keanu Reeves featured in before 2003?"
 threshold = 0.65
@@ -106,13 +107,35 @@ def main():
 
                     # Create a Connection
                     push_qn_v1_graph_v1_relationships_to_neo4j(graph, graph_word_id, qn_word_id)
-                    print("Completed!!!")
+                    print(f"Connection between question V1 node {qn_word_id} and graph V1 node {graph_word_id} completed!!!")
 
                 else:
                     print(f"Similarity score between {qn_word_term} and {graph_word_term} is below threshold.")
-
+    
         else:
             print(f"Token {qn_word_term} exists in train data!")
+    
+    # Step 3: Feed Tokens into GraphSAGE Module
+    graph_nodes = fetch_nodes(graph)
+    graph_relationships = fetch_relationships(graph)
+    
+    # Encode the Node Features
+    node_features = encode_node_features(graph_nodes)
+    
+    # Create Graph Data Object
+    data = create_graph_data_object(node_features, graph_relationships)
+    
+    # Learn the Node Embeddings
+    node_embeddings = learn_node_embeddings(data)
+    
+    # Split into V1 and V2 Node Embeddings
+    v1_id_to_emb, v2_id_to_emb = split_node_embeddings(graph_nodes, node_embeddings, node_features)
+    
+    # Create Node Properties for Embeddings
+    push_v1_nodes_with_embeddings_to_neo4j(graph, v1_id_to_emb)
+    push_v2_nodes_with_embeddings_to_neo4j(graph, v2_id_to_emb)
+    
+    # Step 4: Acehieve the Matching Score Between Question Token and Relation Properties
     
 if __name__ == "__main__":
     main()

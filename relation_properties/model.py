@@ -10,8 +10,6 @@ from sentence_transformers import SentenceTransformer
 
 from langchain_community.graphs import Neo4jGraph
 
-from neo4j_operations import fetch_nodes, fetch_relationships, push_v1_nodes_with_embeddings_to_neo4j, push_v2_nodes_with_embeddings_to_neo4j
-
 # Function to get the Neo4j Credentials File Path 
 def get_neo4j_credentials_path(config_folder="config"):
     """
@@ -74,91 +72,107 @@ graph = Neo4jGraph(
     password=NEO4J_PASSWORD,
 )
 
-# Fetch the Nodes and Relationships from Neo4j
-graph_nodes = fetch_nodes(graph)
-graph_relationships = fetch_relationships(graph)
-
 # Set the Torch Device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-# Encode the Node Name into Numeric Features
-embedding_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+# Function to Encode the Graph Node Features
+def encode_node_features(graph_nodes):
 
-# Create a mapping
-node_features = {}
-for node in graph_nodes:
-    text = node['name']  
-    embedding = embedding_model.encode(text)
-    node_features[node['id']] = embedding
+    # Encode the Node Name into Numeric Features
+    embedding_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
-# Build the Node IDs
-node_ids = sorted(node_features.keys())
-
-# Build the Feature Matrix
-x = torch.tensor([node_features[nid] for nid in node_ids], dtype=torch.float)
-
-id_to_idx = {nid: i for i, nid in enumerate(node_ids)}
-
-# Create a List of Relationships
-relationship_idx_list = []
-for relationship in graph_relationships:
-    src, tgt = relationship['source'], relationship['target']
-    if src in id_to_idx and tgt in id_to_idx:
-        relationship_idx_list.append([id_to_idx[src], id_to_idx[tgt]])
-
-# Convert the Edges into Tensor
-relationship_index = torch.tensor(relationship_idx_list, dtype=torch.long).t().contiguous()
-
-# Create the Torch Geometric Data Object.
-data = Data(x=x, edge_index=relationship_index)
-
-# Gather Some Statistics
-print(data)
-print('=============================================================')
-print(f'Number of nodes: {data.num_nodes}')
-print(f'Number of edges: {data.num_edges}')
-print(f'Average node degree: {data.num_edges / data.num_nodes:.2f}')
-print(f'Has isolated nodes: {data.has_isolated_nodes()}')
-print(f'Has self-loops: {data.has_self_loops()}')
-print(f'Is undirected: {data.is_undirected()}')
-
-# Instantiate the Model
-model = GraphSAGE(data.num_node_features, hidden_channels=64, num_layers=3).to(device)
-model
-
-# Perform Forward Pass and Get Embeddings
-model.eval()
-with torch.no_grad():
-    node_embeddings = model(data.x, data.edge_index)
-
-print("Shape of node embeddings:", node_embeddings.shape)
-
-# Match the Embeddings to Each Node ID
-id_to_emb = {}
-for id in id_to_idx:
-    for emb in node_embeddings:
-        id_to_emb[id] = emb
-
-# Split the Embeddings Dictionary into V1 and V2 Nodes
-v1_node_ids = []
-v2_node_ids = []
-
-for node in graph_nodes:
-    if node["labels"] == ["V1"]:
-        v1_node_ids.append(node["id"])
-    if node["labels"] == ["V2"]:
-        v2_node_ids.append(node["id"])
+    # Create a mapping
+    node_features = {}
+    for node in graph_nodes:
+        text = node['name']  
+        embedding = embedding_model.encode(text)
+        node_features[node['id']] = embedding
         
-v1_id_to_emb = {}
-v2_id_to_emb = {}
+    return node_features
 
-for node_id, node_embeddings in id_to_emb.items():
-    if node_id in v1_node_ids:
-        v1_id_to_emb[node_id] = node_embeddings
-    if node_id in v2_node_ids:
-        v2_id_to_emb[node_id] = node_embeddings
+# Function to Create Graph Data Object
+def create_graph_data_object(node_features, graph_relationships, show_stats=True):
+    
+    # Build the Node IDs
+    node_ids = sorted(node_features.keys())
 
-# Create Node Properties for Embeddings
-push_v1_nodes_with_embeddings_to_neo4j(graph, v1_id_to_emb)
-push_v2_nodes_with_embeddings_to_neo4j(graph, v2_id_to_emb)
+    # Build the Feature Matrix
+    x = torch.tensor([node_features[nid] for nid in node_ids], dtype=torch.float)
 
+    id_to_idx = {nid: i for i, nid in enumerate(node_ids)}
+
+    # Create a List of Relationships
+    relationship_idx_list = []
+    for relationship in graph_relationships:
+        src, tgt = relationship['source'], relationship['target']
+        if src in id_to_idx and tgt in id_to_idx:
+            relationship_idx_list.append([id_to_idx[src], id_to_idx[tgt]])
+
+    # Convert the Edges into Tensor
+    relationship_index = torch.tensor(relationship_idx_list, dtype=torch.long).t().contiguous()
+
+    # Create the Torch Geometric Data Object.
+    data = Data(x=x, edge_index=relationship_index)
+    
+    if show_stats:
+        print(data)
+        print('=============================================================')
+        print(f'Number of nodes: {data.num_nodes}')
+        print(f'Number of edges: {data.num_edges}')
+        print(f'Average node degree: {data.num_edges / data.num_nodes:.2f}')
+        print(f'Has isolated nodes: {data.has_isolated_nodes()}')
+        print(f'Has self-loops: {data.has_self_loops()}')
+        print(f'Is undirected: {data.is_undirected()}')
+    
+    return data
+
+# Function to Learn the Node Embeddings
+def learn_node_embeddings(data):
+
+    # Instantiate the Model
+    model = GraphSAGE(data.num_node_features, hidden_channels=64, num_layers=3).to(device)
+    model
+
+    # Perform Forward Pass and Get Embeddings
+    model.eval()
+    with torch.no_grad():
+        node_embeddings = model(data.x, data.edge_index)
+
+    print("Shape of node embeddings:", node_embeddings.shape)
+    
+    return node_embeddings
+
+# Function to Split the Node Embeddings
+def split_node_embeddings(graph_nodes, node_embeddings, node_features):
+    
+    # Build the Node IDs
+    node_ids = sorted(node_features.keys())
+    id_to_idx = {nid: i for i, nid in enumerate(node_ids)}
+
+    # Match the Embeddings to Each Node ID
+    id_to_emb = {}
+    for id in id_to_idx:
+        for emb in node_embeddings:
+            id_to_emb[id] = emb
+
+    # Split the Embeddings Dictionary into V1 and V2 Nodes
+    v1_node_ids = []
+    v2_node_ids = []
+
+    for node in graph_nodes:
+        if node["labels"] == ["V1"]:
+            v1_node_ids.append(node["id"])
+        if node["labels"] == ["V2"]:
+            v2_node_ids.append(node["id"])
+
+    # Get a Dictionary of V1 and V2 Node Embeddings
+    v1_id_to_emb = {}
+    v2_id_to_emb = {}
+
+    for node_id, node_embeddings in id_to_emb.items():
+        if node_id in v1_node_ids:
+            v1_id_to_emb[node_id] = node_embeddings
+        if node_id in v2_node_ids:
+            v2_id_to_emb[node_id] = node_embeddings
+
+    return v1_id_to_emb, v2_id_to_emb
