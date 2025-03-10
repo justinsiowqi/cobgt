@@ -1,5 +1,32 @@
 import os
+import glob
 
+# Function to get the Neo4j Credentials File Path 
+def get_neo4j_credentials_path(config_folder="config"):
+    """
+    Automatically find the neo4j credentials file in the given config folder.
+    
+    Returns:
+        The path to the credentials file.
+    """
+    # Get the Path to the Config Folder
+    current_dir = os.getcwd()
+    parent_dir = os.path.dirname(current_dir)
+    config_folder = os.path.join(parent_dir, "config")
+    
+    pattern = os.path.join(config_folder, "Neo4j-*.txt")
+    files = glob.glob(pattern)
+    
+    if not files:
+        raise FileNotFoundError(
+            f"No neo4j credentials file found in '{config_folder}' matching pattern 'Neo4j-*.txt'."
+        )
+    
+    # Choose the Most Recent File
+    files.sort(key=os.path.getmtime, reverse=True)
+    return files[0]
+
+# Function to Read and Extract From Neo4j Credentials File
 def read_neo4j_credentials(file_path):
     """
     Read a Neo4j credentials file and extract its contents.

@@ -3,59 +3,15 @@ import glob
 
 from langchain_community.graphs import Neo4jGraph
 
+from utils import get_neo4j_credentials_path, read_neo4j_credentials
 from build_nodes import build_v1_nodes, build_v2_nodes
 from connect_nodes import calculate_similarity
 from neo4j_operations import fetch_nodes, fetch_relationships, push_v1_qn_nodes_to_neo4j, push_qn_v1_graph_v1_relationships_to_neo4j, push_v1_nodes_with_embeddings_to_neo4j, push_v2_nodes_with_embeddings_to_neo4j
 from model import encode_node_features, create_graph_data_object, learn_node_embeddings, split_node_embeddings
 
+# Insert Test Question Here
 sample_question = "Which films was Keanu Reeves featured in before 2003?"
 threshold = 0.65
-
-# Function to get the Neo4j Credentials File Path 
-def get_neo4j_credentials_path(config_folder="config"):
-    """
-    Automatically find the neo4j credentials file in the given config folder.
-    
-    Returns:
-        The path to the credentials file.
-    """
-    # Get the Path to the Config Folder
-    current_dir = os.getcwd()
-    parent_dir = os.path.dirname(current_dir)
-    config_folder = os.path.join(parent_dir, "config")
-    
-    pattern = os.path.join(config_folder, "Neo4j-*.txt")
-    files = glob.glob(pattern)
-    
-    if not files:
-        raise FileNotFoundError(
-            f"No neo4j credentials file found in '{config_folder}' matching pattern 'Neo4j-*.txt'."
-        )
-    
-    # Choose the Most Recent File
-    files.sort(key=os.path.getmtime, reverse=True)
-    return files[0]
-
-# Function to Read and Extract From Neo4j Credentials File
-def read_neo4j_credentials(file_path):
-    """
-    Read a Neo4j credentials file and extract its contents.
-    
-    Args:
-        file_path: The file path for the Neo4j credentials txt file.
-        
-    Returns:
-        credentials: A dictionary containing the Neo4j URI, username, instance ID and instance name.
-    """
-    credentials = {}
-    with open(file_path, 'r') as f:
-        for line in f:
-            # Skip comment lines
-            if line.startswith("#") or not line.strip():
-                continue
-            key, value = line.strip().split('=', 1)
-            credentials[key] = value
-    return credentials
 
 # Read the Neo4j Credentials
 neo4j_credentials_path = get_neo4j_credentials_path()
