@@ -33,7 +33,21 @@ def fetch_nodes_with_embeddings(graph):
     
     except Exception as e:
         print(f"Error fetching V1 and V2 nodes: {e}")
-        
+
+# Function to Fetch V2 Nodes with Embeddings
+def fetch_v2_nodes_with_embeddings(graph):
+    try:
+        query = """
+            MATCH (n:V2) 
+            RETURN elementId(n) AS id, n.embeddings AS embeddings;
+        """
+        graph_nodes = graph.query(query)
+        return graph_nodes
+    
+    except Exception as e:
+        print(f"Error fetching V1 and V2 nodes: {e}")
+
+# Function to Fetch Embeddings Based on a Specific ID
 def fetch_embeddings_from_id(graph, node_id):
     try:
         query = """
