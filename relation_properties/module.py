@@ -4,7 +4,7 @@ from langchain_community.graphs import Neo4jGraph
 from utils import get_neo4j_credentials_path, read_neo4j_credentials
 from build_nodes import build_v1_nodes, build_v2_nodes
 from connect_nodes import calculate_similarity
-from neo4j_operations import fetch_nodes, fetch_relationships, push_v1_qn_nodes_to_neo4j, push_qn_v1_graph_v1_relationships_to_neo4j, push_v1_nodes_with_embeddings_to_neo4j, push_v2_nodes_with_embeddings_to_neo4j, fetch_nodes_with_embeddings, fetch_embeddings_from_id
+from neo4j_operations import fetch_nodes, fetch_relationships, push_v1_qn_nodes_to_neo4j, push_qn_v1_graph_v1_relationships_to_neo4j, push_v1_nodes_with_embeddings_to_neo4j, push_v2_nodes_with_embeddings_to_neo4j, fetch_nodes_with_embeddings, fetch_embeddings_from_id, fetch_v2_nodes_with_embeddings
 from model import encode_node_features, create_graph_data_object, learn_node_embeddings, split_node_embeddings
 
 # Insert Test Question Here
@@ -94,42 +94,31 @@ def main():
     
     # ---------- Step 4: Achieve the Matching Score Between Question Token and Relation Properties ----------
     
-    # Fetch the Question and Relation Properties Embeddings
+    # Fetch the Question Embeddings
     qn_embeddings = {}
     for qn_word_id, qn_word_term in qn_word_terms.items():
         qn_word_emb = fetch_embeddings_from_id(graph, qn_word_id)
         qn_embeddings[qn_word_id] = qn_word_emb
     
-    graph_embeddings = {}
-    for graph_word_id, graph_word_term in graph_word_terms.items():  
-        graph_word_emb = fetch_embeddings_from_id(graph, graph_word_id)
-        graph_embeddings[graph_word_id] = graph_word_emb
-    
-    # Filter Out the Graph Embeddings that are from the Question Embeddings
-    graph_embeddings_fil = {node_id: node_emb for node_id, node_emb in graph_embeddings.items() if node_id not in qn_embeddings}
+    # Fetch the Relation Properties Embeddings
+    rel_props = fetch_v2_nodes_with_embeddings(graph)
+    rel_prop_embeddings = {}
+    for rel_prop in rel_props:
+        rel_prop_embeddings[rel_prop["id"]] = rel_prop["embeddings"]
     
     # Convert Embeddings into Tensors
     qn_embeddings_tensor = {node_id: torch.tensor(node_emb) for node_id, node_emb in qn_embeddings.items()}  
-    graph_embeddings_fil_tensor = {node_id: torch.tensor(node_emb) for node_id, node_emb in graph_embeddings_fil.items()}  
-    
-    print("TENSOR")
-    print(qn_embeddings_tensor)
-    print(graph_embeddings_fil_tensor)
+    rel_prop_embeddings_tensor = {node_id: torch.tensor(node_emb) for node_id, node_emb in rel_prop_embeddings.items()}  
     
     # Stack the Tensors
     qn_embeddings_tensor_ids = list(qn_embeddings_tensor.keys())
-    graph_embeddings_fil_tensor_ids = list(graph_embeddings_fil.keys())
+    rel_prop_embeddings_tensor_ids = list(rel_prop_embeddings_tensor.keys())
     
     qn_embeddings_tensor_stack = torch.stack([qn_embeddings_tensor[qid] for qid in qn_embeddings_tensor_ids])
-    graph_embeddings_fil_tensor_stack = torch.stack([graph_embeddings_fil_tensor[gid] for gid in graph_embeddings_fil_tensor_ids])
+    rel_prop_embeddings_tensor_stack = torch.stack([rel_prop_embeddings_tensor[gid] for gid in rel_prop_embeddings_tensor_ids])
+
+    # Calculate the Dot Product Between the Node Embeddings
+    matching_matrix = torch.matmul(qn_embeddings_tensor_stack, rel_prop_embeddings_tensor_stack.t())
     
-    print("STACK")
-    print(qn_embeddings_tensor_stack)
-    print(graph_embeddings_fil_tensor_stack)
-    
-    matching_matrix = torch.matmul(qn_embeddings_tensor_stack, graph_embeddings_fil_tensor_stack.t())
-    print("HECK YEAH")
-    print(matching_matrix)
-     
 if __name__ == "__main__":
     main()
