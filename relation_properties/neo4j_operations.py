@@ -32,7 +32,22 @@ def fetch_nodes_with_embeddings(graph):
         return graph_nodes
     
     except Exception as e:
-        print(f"Error fetching V1 and V2 nodes: {e}")        
+        print(f"Error fetching V1 and V2 nodes: {e}")
+        
+def fetch_embeddings_from_id(graph, node_id):
+    try:
+        query = """
+            MATCH (n)
+            WHERE elementId(n) = $node_id
+            RETURN n.embeddings AS embeddings
+        """
+        params = {"node_id": str(node_id)}
+        node_embeddings = graph.query(query, params)
+        
+        return node_embeddings[0]["embeddings"]
+    
+    except Exception as e:
+        print(f"Error fetching node embeddings: {e}")
         
 # Function to Fetch All Relationships
 def fetch_relationships(graph):
@@ -82,6 +97,7 @@ def push_v1_qn_nodes_to_neo4j(graph, node_list):
             print(f"Error creating V1 node {item}: {e}")
     
     print("V1 nodes created successfully.")
+    
     return node_dict
     
 # Function to Push V2 Nodes to Neo4j
