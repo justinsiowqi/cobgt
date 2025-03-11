@@ -151,10 +151,9 @@ def split_node_embeddings(graph_nodes, node_embeddings, node_features):
 
     # Match the Embeddings to Each Node ID
     id_to_emb = {}
-    for id in id_to_idx:
-        for emb in node_embeddings:
-            id_to_emb[id] = emb
-
+    for nid, idx in id_to_idx.items():
+        id_to_emb[nid] = node_embeddings[idx]
+    
     # Split the Embeddings Dictionary into V1 and V2 Nodes
     v1_node_ids = []
     v2_node_ids = []
