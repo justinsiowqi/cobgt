@@ -120,5 +120,18 @@ def main():
     # Calculate the Dot Product Between the Node Embeddings
     matching_matrix = torch.matmul(qn_embeddings_tensor_stack, rel_prop_embeddings_tensor_stack.t())
     
+    # ---------- Step 5: Calculate the Aggregated Score. If the Score > 0, Relation Properties will be Chosen ----------
+    
+    # Aggregate the Scores
+    aggregated_scores = matching_matrix.mean(dim=0)
+    print("Aggregated matching scores per schema element:")
+    for idx, score in enumerate(aggregated_scores):
+        print(f"Schema element {rel_prop_embeddings_tensor_ids[idx]}: {score.item():.4f}")
+
+    # Select the Relation Property
+    selected_indices = (aggregated_scores > 0).nonzero(as_tuple=True)[0]
+    selected_relations = [rel_prop_embeddings_tensor_ids[i] for i in selected_indices.tolist()]
+    print(selected_relations)
+    
 if __name__ == "__main__":
     main()
