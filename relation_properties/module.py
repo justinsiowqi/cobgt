@@ -131,7 +131,10 @@ def main():
     # Select the Relation Property
     selected_indices = (aggregated_scores > 0).nonzero(as_tuple=True)[0]
     selected_relations = [rel_prop_embeddings_tensor_ids[i] for i in selected_indices.tolist()]
-    print(selected_relations)
+    
+    # Remove Duplicates
+    selected_relations_no_dups = list(set(selected_relations))
+    print(selected_relations_no_dups)
     
 if __name__ == "__main__":
     main()
