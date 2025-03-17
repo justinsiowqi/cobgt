@@ -1,9 +1,15 @@
-from transformers import T5Tokenizer, T5ForConditionalGeneration
+def format_input(R, K, Q):
+    D1 = "With this information: "
+    D2 = "Key value: "
+    D3 = "Convert to Cypher query: "
 
-MODEL_NAME = "google-t5/t5-small"
+    input_text = (
+        f"<CLS>{D1}{R} <<SEP>{D2}{K} <SEP>{D3}{Q} <EOS>"
+    )
+    return input_text
 
-# Function to Predict the Cypher Query
-def predict_cypher(input_sequence):
+
+def predict_cypher(tokenizer, model, R, K, Q):
     """
     Generate a cypher query based on the input sequence.
     
@@ -13,12 +19,23 @@ def predict_cypher(input_sequence):
     Returns:
         cypher_query: The generated cypher query.
     """
-    tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
-    model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
-
-    input_ids = tokenizer(input_sequence, return_tensors="pt").input_ids
-
-    outputs = model.generate(input_ids)
-    cypher_query = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    input_text = "generate Cypher: " + format_input(R, K, Q)
     
-    return cypher_query
+    # Tokenize with T5's special tokens
+    input_ids = tokenizer(
+        input_text,
+        return_tensors="pt",
+        max_length=512,
+        truncation=True,
+        add_special_tokens=True  
+    ).input_ids
+
+    outputs = model.generate(
+        input_ids,
+        max_new_tokens=200,  
+        num_beams=5,
+        early_stopping=True,
+        no_repeat_ngram_size=2 
+    )
+    
+    return tokenizer.decode(outputs[0], skip_special_tokens=True)
