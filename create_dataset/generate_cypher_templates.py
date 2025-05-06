@@ -27,10 +27,13 @@ DEMO_DATABASES = ["movies"]
 # Instantiate Language Model
 llm = ChatGoogleGenerativeAI(model=MODEL_NAME, timeout=60)
 
+# Read the Template Questions Dataframe
+question_df = pd.read_csv("../data/gemini_questions.csv")
+
 prompt_template = """
 
     You are an expert Neo4j developer.  
-    Given a Graph Schema, generate a set of template questions.
+    Given a Graph Schema, generate Cypher queries that answer each of the provided template questions.
     
     Graph Schema:
     {schema}
@@ -38,17 +41,26 @@ prompt_template = """
     Database:
     {database}
     
+    Input:
+    {input}
+    
     Instructions:
-    - Generate between 35 and 40 template questions.  
-    - Use placeholders in square brackets matching exactly the property names, e.g. `[title]`, `[votes]`, `[roles]`, `[rating]`.  
-    - Ensure questions are answerable based only on the provided schema.    
+    - Generate between 35 and 40 cypher queries, one for each template question.  
+    - Use placeholders in square brackets matching exactly the property names, e.g. `[title]`, `[votes]`, `[roles]`, `[rating]`.
+    - Ensure every Cypher query is syntactically valid and answerable using only the provided schema. 
     - Output the results as a valid JSON list where each item is an object with two keys: question and database.
     - Do not include any introductory text, explanations, or markdown formatting before or after the JSON list. Only output the JSON list itself.
 
-    Example Output:
+    Example Input:
     [
       {{"question": "What movies feature the performance of [name]?", "database": "movies"}},
       {{"question": "Which movies were released in [released]?", "database": "movies"}}
+    ]
+    
+    Example Output:
+    [
+      {{"question": "What movies feature the performance of [name]?", "database": "movies", "cypher": "MATCH (m:Movie)<-[:ACTED_IN]-(a:Actor) WHERE a.name = [name] RETURN m.title"}},
+      {{"question": "Which movies were released in [released]?", "database": "movies", "cypher": "MATCH (m:Movie) WHERE m.released = [released] RETURN m.title;"}}
     ]
 """
 
@@ -58,14 +70,14 @@ parser = JsonOutputParser()
 # Define the Prompt Template
 prompt = PromptTemplate(
     template=prompt_template, 
-    input_variables=["schema", "database"], 
+    input_variables=["schema", "database", "input"], 
     partial_variables={"format_instructions": parser.get_format_instructions()}
 )
 
 # Instantiate Langchain
 chain = prompt | llm | parser
 
-all_questions = []
+all_cypher = []
 for database in DEMO_DATABASES:
     print(f"Processing database: {database}")
     graph = Neo4jGraph(
@@ -78,16 +90,20 @@ for database in DEMO_DATABASES:
         timeout=30,
     )
     schema = graph.schema
+    
+    fil_question_df = question_df[question_df["database"] == database]
+    json_input = fil_question_df.to_json(orient="records")
+    
     try:
-        questions = chain.invoke(
-            {"schema": schema, "database": database}
+        cypher = chain.invoke(
+            {"schema": schema, "database": database, "input": json_input}
         )
-        all_questions.extend(questions)
+        all_cypher.extend(cypher)
     except Exception as e:
         print(f"An error occurred processing database '{database}': {e}")
     finally: 
         graph._driver.close() 
             
 # Save the Dataframe
-df = pd.DataFrame(all_questions)
-df.drop_duplicates(subset='question').to_csv("../data/gemini_questions.csv", index=False)
+cypher_df = pd.DataFrame(all_cypher)
+cypher_df.drop_duplicates(subset='question').to_csv("../data/gemini_cypher.csv", index=False)
